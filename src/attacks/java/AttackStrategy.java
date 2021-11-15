@@ -1,4 +1,4 @@
-package main.java;
+package attacks.java;
 
 // Strategy pattern
 public interface AttackStrategy {

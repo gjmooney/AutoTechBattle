@@ -1,4 +1,4 @@
-package main.java;
+package attacks.java;
 
 public class TalentDrainAttack implements AttackStrategy{
 
