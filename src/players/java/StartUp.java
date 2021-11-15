@@ -12,10 +12,11 @@ public abstract class StartUp {
     int netIncome; // Attack
     int revenue; // Health
     int marketShare; // Defense
-    //AttackStrategy attackStrat;
+    AttackStrategy attackStrategy;
 
 
-    abstract void attack(AttackStrategy strategy);
+    abstract void setAttackStrategy(AttackStrategy strategy);
+    abstract void doAttack();
     abstract void getAttacked(StartUp attacker);
     abstract void battleOver();
     abstract void evolve();

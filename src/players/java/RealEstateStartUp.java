@@ -25,7 +25,12 @@ public class RealEstateStartUp extends StartUp {
     }
 
     @Override
-    public void attack(AttackStrategy strategy) {
+    public void setAttackStrategy(AttackStrategy strategy) {
+
+    }
+
+    @Override
+    void doAttack() {
 
     }
 

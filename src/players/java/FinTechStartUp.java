@@ -25,7 +25,12 @@ public class FinTechStartUp extends StartUp{
     }
 
     @Override
-    void attack(AttackStrategy strategy) {
+    void setAttackStrategy(AttackStrategy strategy) {
+
+    }
+
+    @Override
+    void doAttack() {
 
     }
 
