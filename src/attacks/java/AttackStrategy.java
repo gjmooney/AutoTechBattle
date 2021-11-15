@@ -1,6 +1,9 @@
 package attacks.java;
 
+import players.java.Type;
+
 // Strategy pattern
 public interface AttackStrategy {
-    public int attack(int netIncome);
+    int attack(int netIncome);
+    Type getType();
 }
