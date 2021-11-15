@@ -23,29 +23,4 @@ public class FinTechStartUp extends StartUp{
         this.revenue = 200;
         this.marketShare = 50;
     }
-
-    @Override
-    void setAttackStrategy(AttackStrategy strategy) {
-
-    }
-
-    @Override
-    void doAttack() {
-
-    }
-
-    @Override
-    void getAttacked(StartUp attacker) {
-
-    }
-
-    @Override
-    void battleOver() {
-
-    }
-
-    @Override
-    void evolve() {
-
-    }
 }

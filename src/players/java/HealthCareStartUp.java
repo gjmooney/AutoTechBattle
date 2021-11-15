@@ -2,7 +2,7 @@ package players.java;
 
 import attacks.java.AttackStrategy;
 
-public class HealthCareStartUp extends StartUp{
+public class HealthCareStartUp extends StartUp {
 
     public HealthCareStartUp() {
         this.name = "Real Estate";
@@ -22,30 +22,5 @@ public class HealthCareStartUp extends StartUp{
         this.netIncome = 200;
         this.revenue = 50;
         this.marketShare = 50;
-    }
-
-    @Override
-    void setAttackStrategy(AttackStrategy strategy) {
-
-    }
-
-    @Override
-    void doAttack() {
-
-    }
-
-    @Override
-    void getAttacked(StartUp attacker) {
-
-    }
-
-    @Override
-    void battleOver() {
-
-    }
-
-    @Override
-    void evolve() {
-
     }
 }

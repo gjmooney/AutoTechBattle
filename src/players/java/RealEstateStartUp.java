@@ -23,30 +23,5 @@ public class RealEstateStartUp extends StartUp {
         this.revenue = 100;
         this.marketShare = 150;
     }
-
-    @Override
-    public void setAttackStrategy(AttackStrategy strategy) {
-
-    }
-
-    @Override
-    void doAttack() {
-
-    }
-
-    @Override
-    public void getAttacked(StartUp attacker) {
-
-    }
-
-    @Override
-    public void battleOver() {
-
-    }
-
-    @Override
-    public void evolve() {
-
-    }
 }
 

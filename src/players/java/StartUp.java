@@ -1,6 +1,7 @@
 package players.java;
 
 import attacks.java.AttackStrategy;
+import main.java.Constants;
 
 // Template pattern, uses Strategy pattern for attacks
 public abstract class StartUp {
@@ -15,11 +16,33 @@ public abstract class StartUp {
     AttackStrategy attackStrategy;
 
 
-    abstract void setAttackStrategy(AttackStrategy strategy);
-    abstract void doAttack();
-    abstract void getAttacked(StartUp attacker);
-    abstract void battleOver();
-    abstract void evolve();
+    public void setAttackStrategy(AttackStrategy strategy) {
+        this.attackStrategy = strategy;
+    }
+
+    public void doAttack(StartUp target) {
+        int damage = attackStrategy.attack(netIncome);
+
+        //Attack does extra damage if it is the same type
+        if (type.equals(attackStrategy.getType())) {
+            damage *= Constants.SAME_TYPE_ATTACK_BONUS;
+        }
+
+        target.getAttacked(damage);
+    }
+
+    public void getAttacked(int damage) {
+        int healthLost = damage - marketShare;
+        setRevenue(revenue - healthLost);
+    }
+
+    void battleOver(){
+
+    }
+
+    void evolve() {
+
+    }
 
     public String getName() {
         return name;

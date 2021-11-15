@@ -23,29 +23,4 @@ public class SocialMediaStartUp extends StartUp{
         this.revenue = 100;
         this.marketShare = 150;
     }
-
-    @Override
-    void setAttackStrategy(AttackStrategy strategy) {
-
-    }
-
-    @Override
-    void doAttack() {
-
-    }
-
-    @Override
-    void getAttacked(StartUp attacker) {
-
-    }
-
-    @Override
-    void battleOver() {
-
-    }
-
-    @Override
-    void evolve() {
-
-    }
 }
