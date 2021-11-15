@@ -1,7 +1,6 @@
 package players.java;
 
-import main.java.AttackStrategy;
-import main.java.Type;
+import attacks.java.AttackStrategy;
 
 // Template pattern, uses Strategy pattern for attacks
 public abstract class StartUp {

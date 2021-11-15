@@ -1,4 +1,4 @@
-package main.java;
+package players.java;
 
 public enum Type {
     SOCIAL_MEDIA,

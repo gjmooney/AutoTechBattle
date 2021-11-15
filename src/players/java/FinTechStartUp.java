@@ -2,25 +2,25 @@ package players.java;
 
 import attacks.java.AttackStrategy;
 
-public class HealthCareStartUp extends StartUp{
+public class FinTechStartUp extends StartUp{
 
-    public HealthCareStartUp() {
+    public FinTechStartUp() {
         this.name = "Real Estate";
-        this.type = Type.HEALTH_CARE;
+        this.type = Type.FIN_TECH;
         this.owner = null;
         this.level = 1;
         this.netIncome = 50;
-        this.revenue = 100;
-        this.marketShare = 150;
+        this.revenue = 200;
+        this.marketShare = 50;
     }
 
-    public HealthCareStartUp(String name) {
+    public FinTechStartUp(String name) {
         this.name = name;
-        this.type = Type.HEALTH_CARE;
+        this.type = Type.FIN_TECH;
         this.owner = null;
         this.level = 1;
-        this.netIncome = 200;
-        this.revenue = 50;
+        this.netIncome = 50;
+        this.revenue = 200;
         this.marketShare = 50;
     }
 

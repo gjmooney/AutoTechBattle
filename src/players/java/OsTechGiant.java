@@ -1,7 +1,5 @@
 package players.java;
 
-import main.java.Type;
-
 import java.util.LinkedList;
 
 public class OsTechGiant extends TechGiant{
