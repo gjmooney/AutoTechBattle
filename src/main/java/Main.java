@@ -19,6 +19,10 @@ public class Main {
         tepid.addStartUp(markHealth);
         TechGiant.techGiants.add(tepid);
 
+        //Wild start ups
+        StartUp greyRock = new FinTechStartUp("GreyRock");
+        StartUp xulin = new SocialMediaStartUp("Xulin");
+
         //Set up game
         Cycle.setQuarter(1);
 
