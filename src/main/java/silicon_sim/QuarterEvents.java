@@ -1,7 +1,7 @@
-package main.java;
+package main.java.silicon_sim;
 
-import players.java.StartUp;
-import players.java.TechGiant;
+import main.java.silicon_sim.players.StartUp;
+import main.java.silicon_sim.players.TechGiant;
 
 public class QuarterEvents {
 

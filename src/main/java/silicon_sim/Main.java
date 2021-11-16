@@ -1,7 +1,7 @@
-package main.java;
+package main.java.silicon_sim;
 
-import players.java.*;
-import main.java.Cycle;
+import main.java.silicon_sim.players.*;
+import main.java.silicon_sim.Cycle;
 
 public class Main {
     public static void main(String[] args) {

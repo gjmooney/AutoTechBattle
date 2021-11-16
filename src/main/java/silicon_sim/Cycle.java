@@ -1,4 +1,4 @@
-package main.java;
+package main.java.silicon_sim;
 
 public abstract class Cycle {
     static int quarter;

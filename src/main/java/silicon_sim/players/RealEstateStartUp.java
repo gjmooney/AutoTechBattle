@@ -1,10 +1,12 @@
-package players.java;
+package main.java.silicon_sim.players;
 
-public class SocialMediaStartUp extends StartUp{
+import main.java.silicon_sim.attacks.AttackStrategy;
 
-    public SocialMediaStartUp() {
+public class RealEstateStartUp extends StartUp {
+
+    public RealEstateStartUp() {
         this.name = "Real Estate";
-        this.type = Type.SOCIAL_MEDIA;
+        this.type = Type.REAL_ESTATE;
         this.owner = null;
         this.level = 1;
         this.netIncome = 50;
@@ -12,9 +14,9 @@ public class SocialMediaStartUp extends StartUp{
         this.marketShare = 150;
     }
 
-    public SocialMediaStartUp(String name) {
+    public RealEstateStartUp(String name) {
         this.name = name;
-        this.type = Type.SOCIAL_MEDIA;
+        this.type = Type.REAL_ESTATE;
         this.owner = null;
         this.level = 1;
         this.netIncome = 50;
@@ -22,3 +24,4 @@ public class SocialMediaStartUp extends StartUp{
         this.marketShare = 150;
     }
 }
+

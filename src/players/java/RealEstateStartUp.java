@@ -1,7 +1,5 @@
 package players.java;
 
-import attacks.java.AttackStrategy;
-
 public class RealEstateStartUp extends StartUp {
 
     public RealEstateStartUp() {

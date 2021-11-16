@@ -1,4 +1,6 @@
-package players.java;
+package main.java.silicon_sim.players;
+
+import main.java.silicon_sim.attacks.AttackStrategy;
 
 public class SocialMediaStartUp extends StartUp{
 
