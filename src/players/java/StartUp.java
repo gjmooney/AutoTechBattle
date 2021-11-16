@@ -20,7 +20,7 @@ public abstract class StartUp {
         this.attackStrategy = strategy;
     }
 
-    public void doAttack(StartUp target) {
+    public int doAttack() {
         int damage = attackStrategy.attack(netIncome);
 
         //Attack does extra damage if it is the same type
@@ -28,7 +28,7 @@ public abstract class StartUp {
             damage *= Constants.SAME_TYPE_ATTACK_BONUS;
         }
 
-        target.getAttacked(damage);
+        return damage;
     }
 
     public void getAttacked(int damage) {
