@@ -1,23 +1,21 @@
 package main.java.silicon_sim.players;
 
-import main.java.silicon_sim.attacks.AttackStrategy;
-
 public class HealthCareStartUp extends StartUp {
 
     public HealthCareStartUp() {
         super();
         this.setName("Health Care");
         this.setType(Type.HEALTH_CARE);
-        this.setNetIncome(100);
-        this.setRevenue(100);
-        this.setMarketShare(100);
+        this.setAttack(100);
+        this.setHealth(100);
+        this.setDefense(100);
     }
 
     public HealthCareStartUp(String name) {
-        super();
+        super(name);
         this.setType(Type.HEALTH_CARE);
-        this.setNetIncome(100);
-        this.setRevenue(100);
-        this.setMarketShare(100);
+        this.setAttack(100);
+        this.setHealth(100);
+        this.setDefense(100);
     }
 }
