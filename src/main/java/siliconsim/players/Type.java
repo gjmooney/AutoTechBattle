@@ -1,4 +1,4 @@
-package main.java.silicon_sim.players;
+package main.java.siliconsim.players;
 
 public enum Type {
     SOCIAL_MEDIA,

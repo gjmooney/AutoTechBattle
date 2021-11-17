@@ -1,4 +1,4 @@
-package main.java.silicon_sim;
+package main.java.siliconsim;
 
 public class Constants {
     public final static Double SAME_TYPE_ATTACK_BONUS = 1.2;

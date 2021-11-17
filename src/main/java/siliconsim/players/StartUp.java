@@ -1,7 +1,7 @@
-package main.java.silicon_sim.players;
+package main.java.siliconsim.players;
 
-import main.java.silicon_sim.attacks.AttackStrategy;
-import main.java.silicon_sim.Constants;
+import main.java.siliconsim.attacks.AttackStrategy;
+import main.java.siliconsim.Constants;
 
 // Template pattern, uses Strategy pattern for attacks
 public abstract class StartUp {

@@ -1,9 +1,9 @@
-package main.java.silicon_sim;
+package main.java.siliconsim;
 
-import main.java.silicon_sim.attacks.TalentDrainAttack;
-import main.java.silicon_sim.attacks.TradeSecretTheftAttack;
-import main.java.silicon_sim.attacks.UndercutPriceAttack;
-import main.java.silicon_sim.players.StartUp;
+import main.java.siliconsim.attacks.TalentDrainAttack;
+import main.java.siliconsim.attacks.TradeSecretTheftAttack;
+import main.java.siliconsim.attacks.UndercutPriceAttack;
+import main.java.siliconsim.players.StartUp;
 
 import java.util.Scanner;
 

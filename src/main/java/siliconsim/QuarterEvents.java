@@ -1,6 +1,6 @@
-package main.java.silicon_sim;
+package main.java.siliconsim;
 
-import main.java.silicon_sim.players.StartUp;
+import main.java.siliconsim.players.StartUp;
 
 public class QuarterEvents {
 

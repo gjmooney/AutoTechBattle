@@ -1,7 +1,7 @@
-package main.java.silicon_sim;
+package main.java.siliconsim;
 
-import main.java.silicon_sim.players.StartUp;
-import main.java.silicon_sim.players.TechGiant;
+import main.java.siliconsim.players.StartUp;
+import main.java.siliconsim.players.TechGiant;
 
 import java.util.LinkedList;
 import java.util.Scanner;

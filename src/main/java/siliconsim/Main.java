@@ -1,6 +1,6 @@
-package main.java.silicon_sim;
+package main.java.siliconsim;
 
-import main.java.silicon_sim.players.*;
+import main.java.siliconsim.players.*;
 
 public class Main {
     public static void main(String[] args) {

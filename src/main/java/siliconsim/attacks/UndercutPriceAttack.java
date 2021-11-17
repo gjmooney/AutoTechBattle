@@ -1,6 +1,6 @@
-package main.java.silicon_sim.attacks;
+package main.java.siliconsim.attacks;
 
-import main.java.silicon_sim.players.Type;
+import main.java.siliconsim.players.Type;
 
 public class UndercutPriceAttack implements AttackStrategy{
     Type type = Type.REAL_ESTATE;
