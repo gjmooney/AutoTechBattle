@@ -5,22 +5,19 @@ import main.java.silicon_sim.attacks.AttackStrategy;
 public class SocialMediaStartUp extends StartUp{
 
     public SocialMediaStartUp() {
-        this.name = "Real Estate";
-        this.type = Type.SOCIAL_MEDIA;
-        this.owner = null;
-        this.level = 1;
-        this.netIncome = 50;
-        this.revenue = 100;
-        this.marketShare = 150;
+        super();
+        this.setName("Social Media");
+        this.setType(Type.SOCIAL_MEDIA);
+        this.setNetIncome(50);
+        this.setRevenue(100);
+        this.setMarketShare(150);
     }
 
     public SocialMediaStartUp(String name) {
-        this.name = name;
-        this.type = Type.SOCIAL_MEDIA;
-        this.owner = null;
-        this.level = 1;
-        this.netIncome = 50;
-        this.revenue = 100;
-        this.marketShare = 150;
+        super();
+        this.setType(Type.SOCIAL_MEDIA);
+        this.setNetIncome(50);
+        this.setRevenue(100);
+        this.setMarketShare(150);
     }
 }

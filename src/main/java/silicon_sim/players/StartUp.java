@@ -5,15 +5,26 @@ import main.java.silicon_sim.Constants;
 
 // Template pattern, uses Strategy pattern for attacks
 public abstract class StartUp {
-    String name;
-    String owner; // TechGiant
-    Type type; // maybe
-    int level;
-    int exp;
-    int netIncome; // Attack
-    int revenue; // Health
-    int marketShare; // Defense
-    AttackStrategy attackStrategy;
+    private String name;
+    private TechGiant owner; // TechGiant
+    private Type type; // maybe
+    private int level;
+    private int exp;
+    private int netIncome; // Attack
+    private int revenue; // Health
+    private int marketShare; // Defense
+    private AttackStrategy attackStrategy;
+
+    public StartUp() {
+        this.setOwner(null);
+        this.setLevel(1);
+    }
+
+    public StartUp(String name) {
+        this.setName(name);
+        this.setOwner(null);
+        this.setLevel(1);
+    }
 
 
     public void setAttackStrategy(AttackStrategy strategy) {
@@ -32,12 +43,20 @@ public abstract class StartUp {
     }
 
     public void getAttacked(int damage) {
-        int healthLost = damage - marketShare;
+        int healthLost = marketShare - damage;
         setRevenue(revenue - healthLost);
     }
 
     void battleOver(){
 
+    }
+
+    public void levelCheck() {
+        if (level < Constants.MAX_LEVEL) {
+            if (getExp() >= getLevel() * getLevel() * getLevel()) {
+                level++;
+            }
+        }
     }
 
     void evolve() {
@@ -52,11 +71,11 @@ public abstract class StartUp {
         this.name = name;
     }
 
-    public String getOwner() {
+    public TechGiant getOwner() {
         return owner;
     }
 
-    public void setOwner(String owner) {
+    public void setOwner(TechGiant owner) {
         this.owner = owner;
     }
 

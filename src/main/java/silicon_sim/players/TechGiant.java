@@ -7,16 +7,26 @@ public abstract class TechGiant {
     Type type;
     int totalRevenue = 0;
     LinkedList<StartUp> startUps;
-    public static LinkedList<TechGiant> techGiants = new LinkedList<TechGiant>();
 
     /**
      * Acquire new start ups
      */
-    public abstract void rally();
+    public void rally() {
 
+    }
+
+    /**
+     * Add a new start up to tech giants portfolio
+     * @param startUp start up to add
+     */
     public void addStartUp(StartUp startUp) {
-        startUp.setOwner(this.name);
+        startUp.setOwner(this);
         startUps.add(startUp);
+    }
+
+    public void removeStartUp(StartUp startUp) {
+        startUps.remove(startUp);
+        startUp.setOwner(null);
     }
 
     /**
@@ -30,5 +40,9 @@ public abstract class TechGiant {
 
     public LinkedList<StartUp> getStartUps() {
         return startUps;
+    }
+
+    public String getName() {
+        return name;
     }
 }
