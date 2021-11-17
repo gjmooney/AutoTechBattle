@@ -10,36 +10,103 @@ import java.util.Scanner;
 public class BattleManager {
     static Scanner in = new Scanner(System.in);
     static int turn;
+    static int choice;
+    static boolean fightOver;
+    StartUp winner, loser;
 
+    /**
+     * Start a battle between two start-ups
+     * @param player1 first tech giants start-up
+     * @param player2 second tech giants start-up
+     */
     public void startBattle(StartUp player1, StartUp player2) {
+        fightOver = false;
+
         // player 1 goes first
         turn = 1;
-        int choice = 0;
-        boolean fightOver = false;
 
+        System.out.println(player1.getName() + " is doing battle with " +
+                player2.getName() + "!");
         // Prompt for attack choice
         do {
-            System.out.println("Choose attack: ");
-            System.out.println("1) Talent Drain"
-            + "\n2) Trade Secret Theft"
-            + "\n3) Undercut Prices");
-
-            choice = in.nextInt();
-            //choice = 1;
-
-            int damage = calcAttack(player1, choice);
-            player2.getAttacked(damage);
-
-            if (damage < Constants.MINIMUM_DAMAGE_DONE) {
-                damage = Constants.MINIMUM_DAMAGE_DONE;
+            if (turn == 1) {
+                doTurn(player1, player2);
+                turn = 2;
+            } else {
+                doTurn(player2, player1);
+                turn = 1;
             }
-
-            // if hp < 0 fight is over
-
         } while (!fightOver);
+
+        battleOver(winner, loser);
     }
 
-    public int calcAttack(StartUp player, int attack) {
+    /**
+     * Choose and perform an attack
+     * @param attacker start-up that is attacking
+     * @param defender start-up that is defending
+     */
+    private void doTurn(StartUp attacker, StartUp defender) {
+        // Prompt for attack choice
+        System.out.println("Health: " + attacker.getName() + " : " + attacker.getHealth());
+        System.out.println("Health: " + defender.getName() + " : " + defender.getHealth());
+
+        System.out.println(attacker.getName() + ": Choose attack: ");
+        System.out.println("1) Talent Drain" +
+                "\n2) Trade Secret Theft" +
+                "\n3) Undercut Prices");
+
+        choice = in.nextInt();
+
+        int damage = calcAttack(attacker, choice);
+        System.out.println(attacker.getName() + " used " + attacker.getAttackStrategy().toString());
+        System.out.println(attacker.getName() + " did " + damage + " damage to " +
+                defender.getName());
+
+        defender.getAttacked(damage);
+        if (defender.getHealth() <= 0) {
+            fightOver = true;
+            winner = attacker;
+            loser = defender;
+        }
+    }
+
+    private void battleOver(StartUp winner, StartUp loser) {
+        boolean levelUp = false;
+        System.out.println(winner.getName() + " has won the battle!");
+
+        // Award exp to all startups in owners portfolio
+        int expReceived = Constants.BASE_EXPERIENCE * loser.getLevel();
+        for (StartUp su : winner.getOwner().getStartUps()) {
+            su.setExp(su.getExp() + expReceived);
+            levelUp = su.levelCheck();
+            if (levelUp) {
+                System.out.println("Congratulations! " + su.getName() +
+                        "has reached level " + su.getLevel());
+            }
+        }
+
+        System.out.println("Add " + loser.getName() + " to "
+                + winner.getOwnerName() + "'s portfolio?");
+        System.out.println("1) Yes \n2) No");
+        choice = in.nextInt();
+
+        if (choice == 1) {
+            // Startup has an owner
+            if (loser.getOwner() != null) {
+                loser.getOwner().removeStartUp(loser);
+            }
+
+            winner.getOwner().addStartUp(loser);
+            System.out.println(loser.getName() + " has been added to" +
+                    winner.getOwnerName() + "'s portfolio");
+        } else {
+            System.out.println(loser.getName() + " was not acquired");
+        }
+
+    }
+
+    private int calcAttack(StartUp player, int attack) {
 
         switch (attack) {
             case 1:
