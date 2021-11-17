@@ -14,4 +14,9 @@ public class TalentDrainAttack implements AttackStrategy{
     public Type getType() {
         return type;
     }
+
+    @Override
+    public String toString() {
+        return "Talent Drain Attack";
+    }
 }

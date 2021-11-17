@@ -6,4 +6,5 @@ import main.java.silicon_sim.players.Type;
 public interface AttackStrategy {
     int attack(int netIncome);
     Type getType();
+    String toString();
 }

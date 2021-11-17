@@ -14,4 +14,10 @@ public class UndercutPriceAttack implements AttackStrategy{
     public Type getType() {
         return type;
     }
+
+    @Override
+    public String toString() {
+        return "Undercut Price Attack";
+    }
 }
+

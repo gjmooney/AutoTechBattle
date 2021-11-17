@@ -14,4 +14,9 @@ public class TradeSecretTheftAttack implements AttackStrategy{
     public Type getType() {
         return type;
     }
+
+    @Override
+    public String toString() {
+        return "Trade Secret Theft Attack";
+    }
 }
