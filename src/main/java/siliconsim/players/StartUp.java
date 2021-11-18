@@ -3,6 +3,8 @@ package main.java.siliconsim.players;
 import main.java.siliconsim.attacks.AttackStrategy;
 import main.java.siliconsim.Constants;
 
+import java.util.Random;
+
 // Template pattern, uses Strategy pattern for attacks
 public abstract class StartUp {
     private String name;
@@ -13,17 +15,21 @@ public abstract class StartUp {
     private int attack; // net income
     private int health; // revenue
     private int defense; // market share
+    private int critChance; // chance for a critical hit
+    private int chanceToMiss;
     private AttackStrategy attackStrategy;
 
     public StartUp() {
         this.setOwner(null);
         this.setLevel(1);
+        this.setChanceToMiss(10);
     }
 
     public StartUp(String name) {
         this.setName(name);
         this.setOwner(null);
         this.setLevel(1);
+        this.setCritChance(10);
     }
 
 
@@ -32,6 +38,7 @@ public abstract class StartUp {
     }
 
     public int doAttack() {
+        Random rand = new Random();
         int damage = attackStrategy.attack(attack);
 
         //Attack does extra damage if it is the same type
@@ -39,8 +46,22 @@ public abstract class StartUp {
             damage *= Constants.SAME_TYPE_ATTACK_BONUS;
         }
 
+        // Generate random number between 1 and 100
+        int critNumber = rand.nextInt(100) + 1;
+
+        // attack does double damage if it's a crit
+        if (critNumber <= getCritChance()) {
+            damage *= 2;
+        }
+
         if (damage < Constants.MINIMUM_DAMAGE_DONE) {
             damage = Constants.MINIMUM_DAMAGE_DONE;
+        }
+
+        // do no damage if attack misses
+        int missNumber = rand.nextInt(100) + 1;
+        if (missNumber <= getChanceToMiss()) {
+            damage = 0;
         }
 
         return damage;
@@ -140,6 +161,22 @@ public abstract class StartUp {
 
     public void setDefense(int defense) {
         this.defense = defense;
+    }
+
+    public int getCritChance() {
+        return critChance;
+    }
+
+    public void setCritChance(int critChance) {
+        this.critChance = critChance;
+    }
+
+    public int getChanceToMiss() {
+        return chanceToMiss;
+    }
+
+    public void setChanceToMiss(int chanceToMiss) {
+        this.chanceToMiss = chanceToMiss;
     }
 
     public AttackStrategy getAttackStrategy() {

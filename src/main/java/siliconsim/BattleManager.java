@@ -48,8 +48,8 @@ public class BattleManager {
      */
     private void doTurn(StartUp attacker, StartUp defender) {
         // Prompt for attack choice
-        System.out.println("Health: " + attacker.getName() + " : " + attacker.getHealth());
-        System.out.println("Health: " + defender.getName() + " : " + defender.getHealth());
+        System.out.println("Health: \n" + attacker.getName() + " : " +
+                attacker.getHealth() + " | " + defender.getName() + " : " + defender.getHealth());
 
         System.out.println(attacker.getName() + ": Choose attack: ");
         System.out.println("1) Talent Drain" +
@@ -60,14 +60,20 @@ public class BattleManager {
 
         int damage = calcAttack(attacker, choice);
         System.out.println(attacker.getName() + " used " + attacker.getAttackStrategy().toString());
-        System.out.println(attacker.getName() + " did " + damage + " damage to " +
-                defender.getName());
+
+        if (damage > 0) {
+            System.out.println(attacker.getName() + " did " + damage + " damage to " +
+                    defender.getName());
+        } else {
+            System.out.println(attacker.getName() + "'s attack missed!");
+        }
 
         defender.getAttacked(damage);
         if (defender.getHealth() <= 0) {
             fightOver = true;
             winner = attacker;
             loser = defender;
+            System.out.println(defender.getName() + " has fainted!");
         }
     }
 
@@ -82,7 +88,7 @@ public class BattleManager {
             levelUp = su.levelCheck();
             if (levelUp) {
                 System.out.println("Congratulations! " + su.getName() +
-                        "has reached level " + su.getLevel());
+                        " has reached level " + su.getLevel());
             }
         }
 
@@ -98,7 +104,7 @@ public class BattleManager {
             }
 
             winner.getOwner().addStartUp(loser);
-            System.out.println(loser.getName() + " has been added to" +
+            System.out.println(loser.getName() + " has been added to " +
                     winner.getOwnerName() + "'s portfolio");
         } else {
             System.out.println(loser.getName() + " was not acquired");

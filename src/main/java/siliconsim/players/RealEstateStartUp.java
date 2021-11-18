@@ -9,6 +9,7 @@ public class RealEstateStartUp extends StartUp {
         this.setAttack(150);
         this.setHealth(100);
         this.setDefense(50);
+        this.setCritChance(15);
     }
 
     public RealEstateStartUp(String name) {
@@ -17,6 +18,7 @@ public class RealEstateStartUp extends StartUp {
         this.setAttack(150);
         this.setHealth(100);
         this.setDefense(50);
+        this.setCritChance(15);
     }
 }
 

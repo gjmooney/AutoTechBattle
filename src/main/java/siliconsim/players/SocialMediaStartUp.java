@@ -9,6 +9,7 @@ public class SocialMediaStartUp extends StartUp{
         this.setAttack(50);
         this.setHealth(100);
         this.setDefense(150);
+        this.setCritChance(14);
     }
 
     public SocialMediaStartUp(String name) {
@@ -17,5 +18,6 @@ public class SocialMediaStartUp extends StartUp{
         this.setAttack(50);
         this.setHealth(100);
         this.setDefense(150);
+        this.setCritChance(14);
     }
 }

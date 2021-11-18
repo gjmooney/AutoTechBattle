@@ -9,6 +9,7 @@ public class FinTechStartUp extends StartUp{
         this.setAttack(50);
         this.setHealth(200);
         this.setDefense(50);
+        this.setCritChance(18);
     }
 
     public FinTechStartUp(String name) {
@@ -17,5 +18,6 @@ public class FinTechStartUp extends StartUp{
         this.setAttack(50);
         this.setHealth(200);
         this.setDefense(50);
+        this.setCritChance(18);
     }
 }

@@ -9,6 +9,7 @@ public class HealthCareStartUp extends StartUp {
         this.setAttack(100);
         this.setHealth(100);
         this.setDefense(100);
+        this.setCritChance(13);
     }
 
     public HealthCareStartUp(String name) {
@@ -17,5 +18,6 @@ public class HealthCareStartUp extends StartUp {
         this.setAttack(100);
         this.setHealth(100);
         this.setDefense(100);
+        this.setCritChance(13);
     }
 }
