@@ -55,9 +55,7 @@ public class BattleManager {
         System.out.println("1) Talent Drain" +
                 "\n2) Trade Secret Theft" +
                 "\n3) Undercut Prices");
-
         choice = in.nextInt();
-
         int damage = calcAttack(attacker, choice);
         System.out.println(attacker.getName() + " used " + attacker.getAttackStrategy().toString());
 
@@ -109,7 +107,6 @@ public class BattleManager {
         } else {
             System.out.println(loser.getName() + " was not acquired");
         }
-
     }
 
     private int calcAttack(StartUp player, int attack) {

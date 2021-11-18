@@ -52,6 +52,7 @@ public abstract class StartUp {
         // attack does double damage if it's a crit
         if (critNumber <= getCritChance()) {
             damage *= 2;
+            System.out.println("It was a critical hit!");
         }
 
         if (damage < Constants.MINIMUM_DAMAGE_DONE) {
