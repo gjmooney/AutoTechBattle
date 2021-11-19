@@ -4,6 +4,7 @@ import main.java.siliconsim.attacks.TalentDrainAttack;
 import main.java.siliconsim.attacks.TradeSecretTheftAttack;
 import main.java.siliconsim.attacks.UndercutPriceAttack;
 import main.java.siliconsim.players.StartUp;
+import main.java.siliconsim.players.TechGiant;
 
 import java.util.Scanner;
 
@@ -75,6 +76,11 @@ public class BattleManager {
         }
     }
 
+    /**
+     * Award exp, handle acquisitions, and check if the game is over
+     * @param winner StartUp that won the battle
+     * @param loser StartUp that lost the battle
+     */
     private void battleOver(StartUp winner, StartUp loser) {
         boolean levelUp = false;
         System.out.println(winner.getName() + " has won the battle!");
@@ -107,10 +113,29 @@ public class BattleManager {
         } else {
             System.out.println(loser.getName() + " was not acquired");
         }
+
+       if (loser.getOwner() != null) {
+           gameOverCheck(loser.getOwner());
+       }
     }
 
-    private int calcAttack(StartUp player, int attack) {
+    /**
+     * Checks if the losing tech giant is out of start-ups
+     * @param techGiant TechGiant that lost the battle
+     */
+    private void gameOverCheck(TechGiant techGiant) {
+        if (techGiant.getStartUps().isEmpty()) {
+            GameLogic.getLogic().setGameOver(true);
+        }
+    }
 
+    /**
+     * Assign attack strategy
+     * @param player Player that is attacking
+     * @param attack Players choice of attack
+     * @return Damage done by attack 
+     */
+    private int calcAttack(StartUp player, int attack) {
         switch (attack) {
             case 1:
                 player.setAttackStrategy(new TalentDrainAttack());
