@@ -1,6 +1,6 @@
 package main.java.siliconsim.players;
 
-public class SocialMediaStartUp extends StartUp{
+public class SocialMediaStartUp extends StartUp {
 
     public SocialMediaStartUp() {
         super();

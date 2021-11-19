@@ -43,7 +43,7 @@ public class Main {
                 logic.getCycleState().doQuarterEvent(logic.getQuarter());
                 logic.changeQuarter();
             }
-        }while (!logic.isGameOver());
+        } while (!logic.isGameOver());
 
         //logic.getBattleManager().startBattle(willow, markHealth);
 

@@ -1,9 +1,8 @@
 package main.java.siliconsim.players;
 
-import main.java.siliconsim.attacks.AttackStrategy;
-import main.java.siliconsim.Constants;
-
 import java.util.Random;
+import main.java.siliconsim.Constants;
+import main.java.siliconsim.attacks.AttackStrategy;
 
 // Template pattern, uses Strategy pattern for attacks
 public abstract class StartUp {
@@ -78,7 +77,7 @@ public abstract class StartUp {
     }
 
     /**
-     * Checks if start up has enough exp to level up
+     * Checks if start up has enough exp to level up.
      * @return true if start-up gained a level, false otherwise
      */
     public boolean levelCheck() {

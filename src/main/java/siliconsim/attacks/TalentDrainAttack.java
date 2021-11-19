@@ -2,7 +2,7 @@ package main.java.siliconsim.attacks;
 
 import main.java.siliconsim.players.Type;
 
-public class TalentDrainAttack implements AttackStrategy{
+public class TalentDrainAttack implements AttackStrategy {
     Type type = Type.FIN_TECH;
 
     @Override

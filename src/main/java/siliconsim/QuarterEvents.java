@@ -5,7 +5,7 @@ import main.java.siliconsim.players.StartUp;
 public class QuarterEvents {
 
     /**
-     * Tax Cuts give a boost to the revenue of every start up
+     * Tax Cuts give a boost to the revenue of every start up.
      */
     public static void taxCuts() {
         System.out.println("tax cuts");

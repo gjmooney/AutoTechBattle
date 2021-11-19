@@ -9,14 +9,14 @@ public abstract class TechGiant {
     LinkedList<StartUp> startUps;
 
     /**
-     * Acquire new start ups
+     * Acquire new start ups.
      */
     public void rally() {
 
     }
 
     /**
-     * Add a new start up to tech giants portfolio
+     * Add a new start up to tech giants portfolio.
      * @param startUp start up to add
      */
     public void addStartUp(StartUp startUp) {
@@ -30,7 +30,7 @@ public abstract class TechGiant {
     }
 
     /**
-     * Calculate total revenue
+     * Calculate total revenue.
      */
     public void calcTotalRevenue() {
         for (StartUp startUp : startUps) {

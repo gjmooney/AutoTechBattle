@@ -1,33 +1,33 @@
 package main.java.siliconsim;
 
+import java.util.Scanner;
+
 import main.java.siliconsim.attacks.TalentDrainAttack;
 import main.java.siliconsim.attacks.TradeSecretTheftAttack;
 import main.java.siliconsim.attacks.UndercutPriceAttack;
 import main.java.siliconsim.players.StartUp;
 import main.java.siliconsim.players.TechGiant;
 
-import java.util.Scanner;
-
 public class BattleManager {
-    static Scanner in = new Scanner(System.in);
-    static int turn;
-    static int choice;
-    static boolean fightOver;
-    StartUp winner, loser;
+    Scanner in = new Scanner(System.in);
+    int turn;
+    int choice;
+    boolean fightOver;
+    StartUp winner;
+    StartUp loser;
 
     /**
-     * Start a battle between two start-ups
+     * Start a battle between two start-ups.
      * @param player1 first tech giants start-up
      * @param player2 second tech giants start-up
      */
     public void startBattle(StartUp player1, StartUp player2) {
-        fightOver = false;
+        setFightOver(false);
 
         // player 1 goes first
         turn = 1;
-
-        System.out.println(player1.getName() + " is doing battle with " +
-                player2.getName() + "!");
+        System.out.println(player1.getName() + " is doing battle with "
+                + player2.getName() + "!");
         // Prompt for attack choice
         do {
             if (turn == 1) {
@@ -37,39 +37,41 @@ public class BattleManager {
                 doTurn(player2, player1);
                 turn = 1;
             }
-        } while (!fightOver);
+        } while (!isFightOver());
 
         battleOver(winner, loser);
     }
 
     /**
-     * Choose and perform an attack
+     * Choose and perform an attack.
      * @param attacker start-up that is attacking
      * @param defender start-up that is defending
      */
     private void doTurn(StartUp attacker, StartUp defender) {
         // Prompt for attack choice
-        System.out.println("Health: \n" + attacker.getName() + " : " +
-                attacker.getHealth() + " | " + defender.getName() + " : " + defender.getHealth());
+        System.out.println("Health: \n" + attacker.getName() + " : "
+                + attacker.getHealth() + " | "
+                + defender.getName() + " : "
+                + defender.getHealth());
 
         System.out.println(attacker.getName() + ": Choose attack: ");
-        System.out.println("1) Talent Drain" +
-                "\n2) Trade Secret Theft" +
-                "\n3) Undercut Prices");
+        System.out.println("1) Talent Drain"
+                + "\n2) Trade Secret Theft"
+                + "\n3) Undercut Prices");
         choice = in.nextInt();
         int damage = calcAttack(attacker, choice);
         System.out.println(attacker.getName() + " used " + attacker.getAttackStrategy().toString());
 
         if (damage > 0) {
-            System.out.println(attacker.getName() + " did " + damage + " damage to " +
-                    defender.getName());
+            System.out.println(attacker.getName() + " did " + damage + " damage to "
+                    + defender.getName());
         } else {
             System.out.println(attacker.getName() + "'s attack missed!");
         }
 
         defender.getAttacked(damage);
         if (defender.getHealth() <= 0) {
-            fightOver = true;
+            setFightOver(true);
             winner = attacker;
             loser = defender;
             System.out.println(defender.getName() + " has fainted!");
@@ -77,7 +79,7 @@ public class BattleManager {
     }
 
     /**
-     * Award exp, handle acquisitions, and check if the game is over
+     * Award exp, handle acquisitions, and check if the game is over.
      * @param winner StartUp that won the battle
      * @param loser StartUp that lost the battle
      */
@@ -91,8 +93,8 @@ public class BattleManager {
             su.setExp(su.getExp() + expReceived);
             levelUp = su.levelCheck();
             if (levelUp) {
-                System.out.println("Congratulations! " + su.getName() +
-                        " has reached level " + su.getLevel());
+                System.out.println("Congratulations! " + su.getName()
+                        + " has reached level " + su.getLevel());
             }
         }
 
@@ -108,19 +110,19 @@ public class BattleManager {
             }
 
             winner.getOwner().addStartUp(loser);
-            System.out.println(loser.getName() + " has been added to " +
-                    winner.getOwnerName() + "'s portfolio");
+            System.out.println(loser.getName() + " has been added to "
+                    + winner.getOwnerName() + "'s portfolio");
         } else {
             System.out.println(loser.getName() + " was not acquired");
         }
 
-       if (loser.getOwner() != null) {
-           gameOverCheck(loser.getOwner());
-       }
+        if (loser.getOwner() != null) {
+            gameOverCheck(loser.getOwner());
+        }
     }
 
     /**
-     * Checks if the losing tech giant is out of start-ups
+     * Checks if the losing tech giant is out of start-ups.
      * @param techGiant TechGiant that lost the battle
      */
     private void gameOverCheck(TechGiant techGiant) {
@@ -130,7 +132,7 @@ public class BattleManager {
     }
 
     /**
-     * Assign attack strategy
+     * Assign attack strategy.
      * @param player Player that is attacking
      * @param attack Players choice of attack
      * @return Damage done by attack
@@ -153,5 +155,11 @@ public class BattleManager {
         return player.doAttack();
     }
 
+    public boolean isFightOver() {
+        return fightOver;
+    }
 
+    public void setFightOver(boolean didFightEnd) {
+        fightOver = didFightEnd;
+    }
 }

@@ -1,8 +1,8 @@
 package main.java.siliconsim;
 
 public class Constants {
-    public final static Double SAME_TYPE_ATTACK_BONUS = 1.2;
-    public final static int MINIMUM_DAMAGE_DONE = 1;
-    public final static int BASE_EXPERIENCE = 10;
-    public final static int MAX_LEVEL = 10;
+    public static final Double SAME_TYPE_ATTACK_BONUS = 1.2;
+    public static final int MINIMUM_DAMAGE_DONE = 1;
+    public static final int BASE_EXPERIENCE = 10;
+    public static final int MAX_LEVEL = 10;
 }

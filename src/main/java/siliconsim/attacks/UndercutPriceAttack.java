@@ -2,7 +2,7 @@ package main.java.siliconsim.attacks;
 
 import main.java.siliconsim.players.Type;
 
-public class UndercutPriceAttack implements AttackStrategy{
+public class UndercutPriceAttack implements AttackStrategy {
     Type type = Type.REAL_ESTATE;
 
     @Override

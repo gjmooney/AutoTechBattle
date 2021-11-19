@@ -1,10 +1,10 @@
 package main.java.siliconsim;
 
-import main.java.siliconsim.players.StartUp;
-import main.java.siliconsim.players.TechGiant;
-
 import java.util.LinkedList;
 import java.util.Scanner;
+
+import main.java.siliconsim.players.StartUp;
+import main.java.siliconsim.players.TechGiant;
 
 public final class GameLogic {
     private static boolean gameOver;
@@ -26,7 +26,7 @@ public final class GameLogic {
     }
 
     /**
-     * Getter for logic singleton
+     * Getter for logic singleton.
      * @return the GameLogic object for the current game
      */
     public static GameLogic getLogic() {

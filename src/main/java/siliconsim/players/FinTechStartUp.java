@@ -1,6 +1,6 @@
 package main.java.siliconsim.players;
 
-public class FinTechStartUp extends StartUp{
+public class FinTechStartUp extends StartUp {
 
     public FinTechStartUp() {
         super();

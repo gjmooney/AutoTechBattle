@@ -2,7 +2,7 @@ package main.java.siliconsim.attacks;
 
 import main.java.siliconsim.players.Type;
 
-public class TradeSecretTheftAttack implements AttackStrategy{
+public class TradeSecretTheftAttack implements AttackStrategy {
     Type type = Type.OPERATING_SYSTEM;
 
     @Override

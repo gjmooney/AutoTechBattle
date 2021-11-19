@@ -2,7 +2,7 @@ package main.java.siliconsim.players;
 
 import java.util.LinkedList;
 
-public class OsTechGiant extends TechGiant{
+public class OsTechGiant extends TechGiant {
 
     public OsTechGiant() {
         this.name = "Social Media";

@@ -1,6 +1,6 @@
 package main.java.siliconsim;
 
-public class OddQuarter extends Cycle{
+public class OddQuarter extends Cycle {
 
     @Override
     public void doQuarterEvent(int quarter) {
