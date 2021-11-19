@@ -133,7 +133,7 @@ public class BattleManager {
      * Assign attack strategy
      * @param player Player that is attacking
      * @param attack Players choice of attack
-     * @return Damage done by attack 
+     * @return Damage done by attack
      */
     private int calcAttack(StartUp player, int attack) {
         switch (attack) {

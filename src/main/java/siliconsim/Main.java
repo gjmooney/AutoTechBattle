@@ -27,32 +27,25 @@ public class Main {
         evilInc.addStartUp(willow);
         tepid.addStartUp(markHealth);
 
-        //Set up game
-        Cycle.setQuarter(1);
-
-        /*System.out.println("Evil");
-        for (StartUp su : evilInc.getStartUps()) {
-            System.out.println(su.getHealth());
-            System.out.println(su.getOwnerName());
-        }
-
-        System.out.println("Tepid");
-        for (StartUp su : tepid.getStartUps()) {
-            System.out.println(su.getHealth());
-            System.out.println(su.getOwnerName());
-        }
-
-        for (StartUp su : GameLogic.getAllStartUps()) {
-            System.out.println(su.getName() + " : "+ su.getHealth());
-        }
-
+        System.out.println(willow.getHealth());
         QuarterEvents.taxCuts();
+        System.out.println(willow.getHealth());
+        do {
+            // 0 and 1 are the odd quarters OKAY
+            if (logic.getQuarter() == 0 || logic.getQuarter() == 2) {
+                logic.setQuarter(new OddQuarter());
+                logic.getCycleState().doQuarterEvent(logic.getQuarter());
+                logic.changeQuarter();
+            }
+            // 1 and 3 are EVEN OKAY
+            if (logic.getQuarter() == 1 || logic.getQuarter() == 3) {
+                logic.setQuarter(new EvenQuarter());
+                logic.getCycleState().doQuarterEvent(logic.getQuarter());
+                logic.changeQuarter();
+            }
+        }while (!logic.isGameOver());
 
-        for (StartUp su : GameLogic.getAllStartUps()) {
-            System.out.println(su.getName() + " : "+ su.getHealth());
-        }*/
-
-        logic.getBattleManager().startBattle(willow, markHealth);
+        //logic.getBattleManager().startBattle(willow, markHealth);
 
     }
 }

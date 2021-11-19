@@ -8,20 +8,23 @@ public class QuarterEvents {
      * Tax Cuts give a boost to the revenue of every start up
      */
     public static void taxCuts() {
-        for (StartUp su : GameLogic.getAllStartUps()) {
+        System.out.println("tax cuts");
+        for (StartUp su : GameLogic.getLogic().getAllStartUps()) {
             su.setHealth((int) Math.ceil(su.getHealth() * 1.2));
         }
     }
 
-    public void financialCrisis() {
+    public static void financialCrisis() {
+        System.out.println("financial crisis");
+    }
+
+    public static void monopolyBusting() {
+        System.out.println("monopoly busting");
 
     }
 
-    public void monopolyBusting() {
-
-    }
-
-    public void lobbying() {
+    public static void lobbying() {
+        System.out.println("lobbying");
 
     }
 }

@@ -7,10 +7,13 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public final class GameLogic {
+    private static boolean gameOver;
     private static GameLogic logic;
     private static BattleManager battleManager;
     private static LinkedList<TechGiant> allTechGiants;
     private static LinkedList<StartUp> allStartUps;
+    private static int quarter;
+    private Cycle cycleState;
     static Scanner in = new Scanner(System.in);
 
     // Private constructor for Singleton pattern
@@ -18,6 +21,8 @@ public final class GameLogic {
         allTechGiants = new LinkedList<>();
         allStartUps = new LinkedList<>();
         battleManager = new BattleManager();
+        cycleState = new OddQuarter();
+        quarter = 0;
     }
 
     /**
@@ -29,6 +34,31 @@ public final class GameLogic {
             logic = new GameLogic();
         }
         return logic;
+    }
+
+    public int getQuarter() {
+        return quarter;
+    }
+
+    public void setQuarter(Cycle cycle) {
+        this.cycleState = cycle;
+    }
+
+    public void changeQuarter() {
+        quarter = (quarter + 1) % 4;
+        System.out.println(quarter);
+    }
+
+    public Cycle getCycleState() {
+        return cycleState;
+    }
+
+    public boolean isGameOver() {
+        return gameOver;
+    }
+
+    public void setGameOver(boolean gameOver) {
+        GameLogic.gameOver = gameOver;
     }
 
     public BattleManager getBattleManager() {
@@ -43,7 +73,7 @@ public final class GameLogic {
         allTechGiants.add(techGiant);
     }
 
-    public static LinkedList<StartUp> getAllStartUps() {
+    public LinkedList<StartUp> getAllStartUps() {
         return allStartUps;
     }
 
