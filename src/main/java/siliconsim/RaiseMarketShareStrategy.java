@@ -4,7 +4,7 @@ import main.java.siliconsim.players.StartUp;
 
 import java.util.LinkedList;
 
-public class RaiseMarketShareStrategy implements OddQuarterStrategy{
+public class RaiseMarketShareStrategy implements OddQuarterStrategy {
     @Override
     public void doEvent(LinkedList<StartUp> startUps) {
         int oldMarketShare;

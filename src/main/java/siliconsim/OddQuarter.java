@@ -18,8 +18,8 @@ public class OddQuarter extends Cycle {
 
         do {
             System.out.println("What would you like to do?"
-                    +"\n1) Gain Market Share for your start ups"
-                    +"\n2) Attempt to catch a new Start Up");
+                    + "\n1) Gain Market Share for your start ups"
+                    + "\n2) Attempt to catch a new Start Up");
             choice = in.nextInt();
 
             switch (choice) {
