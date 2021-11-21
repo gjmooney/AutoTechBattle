@@ -2,10 +2,13 @@ package main.java.siliconsim.decorator;
 
 import main.java.siliconsim.players.StartUp;
 
-public class InternetDestroyerStartUp extends StartUpDecorator{
+public class InternetDestroyerStartUp extends StartUpDecorator {
 
-    public InternetDestroyerStartUp (StartUp evolvedStartUp) {
+    public InternetDestroyerStartUp(StartUp evolvedStartUp) {
         super(evolvedStartUp);
+        setAttack(getAttack() + 10);
+        setDefense(getDefense() + 10);
+        setHealth(getHealth() + 100);
     }
 
     @Override
