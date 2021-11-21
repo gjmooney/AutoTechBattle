@@ -1,7 +1,7 @@
 package main.java.siliconsim;
 
 import java.util.Scanner;
-
+import main.java.siliconsim.attacks.HireBusinessConsultantsStrategy;
 import main.java.siliconsim.attacks.TalentDrainAttack;
 import main.java.siliconsim.attacks.TradeSecretTheftAttack;
 import main.java.siliconsim.attacks.UndercutPriceAttack;
@@ -89,10 +89,16 @@ public class BattleManager {
         int expReceived = Constants.BASE_EXPERIENCE * loser.getLevel();
         for (StartUp su : winner.getOwner().getStartUps()) {
             su.setExp(su.getExp() + expReceived);
-            levelUp = su.levelCheck();
-            if (levelUp) {
+
+            if (su.levelCheck()) {
                 System.out.println("Congratulations! " + su.getName()
                         + " has reached level " + su.getLevel());
+                winner = su.evolveCheck();
+                if (GameLogic.getLogic().isHasEvolved()) {
+                    System.out.println(su.getName() + " has evolved into a "
+                    + su.getEvolutionString() + "!");
+                }
+                GameLogic.getLogic().setHasEvolved(false);
             }
         }
 
@@ -144,6 +150,9 @@ public class BattleManager {
                 player.setAttackStrategy(new TradeSecretTheftAttack());
                 break;
             case 3:
+                player.setAttackStrategy(new HireBusinessConsultantsStrategy());
+                break;
+            case 4:
                 player.setAttackStrategy(new UndercutPriceAttack());
                 break;
             default:

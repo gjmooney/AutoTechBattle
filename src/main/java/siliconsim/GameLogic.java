@@ -13,7 +13,8 @@ public final class GameLogic {
     private static LinkedList<TechGiant> allTechGiants;
     private static LinkedList<StartUp> allStartUps;
     private static int quarter;
-    private Cycle cycleState;
+    private static Cycle cycleState;
+    private static boolean hasEvolved;
     static Scanner in = new Scanner(System.in);
 
     // Private constructor for Singleton pattern
@@ -36,12 +37,20 @@ public final class GameLogic {
         return logic;
     }
 
+    public boolean isHasEvolved() {
+        return hasEvolved;
+    }
+
+    public void setHasEvolved(boolean evolved) {
+        hasEvolved = evolved;
+    }
+
     public int getQuarter() {
         return quarter;
     }
 
     public void setQuarter(Cycle cycle) {
-        this.cycleState = cycle;
+        cycleState = cycle;
     }
 
     public void changeQuarter() {
@@ -57,8 +66,8 @@ public final class GameLogic {
         return gameOver;
     }
 
-    public void setGameOver(boolean gameOver) {
-        GameLogic.gameOver = gameOver;
+    public void setGameOver(boolean isGameOver) {
+        gameOver = isGameOver;
     }
 
     public BattleManager getBattleManager() {

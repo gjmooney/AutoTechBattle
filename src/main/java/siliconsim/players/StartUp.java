@@ -2,10 +2,13 @@ package main.java.siliconsim.players;
 
 import java.util.Random;
 
+import main.java.siliconsim.GameLogic;
 import main.java.siliconsim.decorator.AttackList;
 import main.java.siliconsim.Constants;
 import main.java.siliconsim.decorator.Evolutions;
 import main.java.siliconsim.attacks.AttackStrategy;
+import main.java.siliconsim.decorator.InternetDestroyerStartUp;
+import main.java.siliconsim.decorator.VcBaitStartUp;
 
 // Template pattern, uses Strategy pattern for attacks
 public abstract class StartUp implements AttackList {
@@ -102,8 +105,18 @@ public abstract class StartUp implements AttackList {
         return false;
     }
 
-    void evolve() {
-
+    public StartUp evolveCheck() {
+        if (getLevel() == 5) {
+            this.setEvolution(Evolutions.VC_BAIT);
+            GameLogic.getLogic().setHasEvolved(true);
+            return new VcBaitStartUp(this);
+        } else if (getLevel() == 10) {
+            this.setEvolution(Evolutions.INTERNET_DESTROYER);
+            GameLogic.getLogic().setHasEvolved(true);
+            return new InternetDestroyerStartUp(this);
+        }
+        GameLogic.getLogic().setHasEvolved(false);
+        return this;
     }
 
     public Evolutions getEvolution() {
@@ -140,6 +153,10 @@ public abstract class StartUp implements AttackList {
 
     public void setType(Type type) {
         this.type = type;
+    }
+
+    public String getEvolutionString() {
+        return getEvolution().toString().replace("_", " ");
     }
 
     public int getLevel() {
