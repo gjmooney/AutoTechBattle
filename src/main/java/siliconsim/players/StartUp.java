@@ -2,6 +2,7 @@ package main.java.siliconsim.players;
 
 import java.util.Random;
 import main.java.siliconsim.Constants;
+import main.java.siliconsim.Evolutions;
 import main.java.siliconsim.attacks.AttackStrategy;
 
 // Template pattern, uses Strategy pattern for attacks
@@ -17,6 +18,7 @@ public abstract class StartUp {
     private int critChance; // chance for a critical hit
     private int chanceToMiss;
     private AttackStrategy attackStrategy;
+    private Evolutions evolution;
 
     public StartUp() {
         this.setOwner(null);
@@ -25,10 +27,16 @@ public abstract class StartUp {
     }
 
     public StartUp(String name) {
-        this.setName(name);
         this.setOwner(null);
         this.setLevel(1);
-        this.setCritChance(10);
+        this.setChanceToMiss(10);
+        this.setName(name);
+    }
+
+    public void init() {
+        this.setOwner(null);
+        this.setLevel(1);
+        this.setChanceToMiss(10);
     }
 
 
@@ -93,6 +101,14 @@ public abstract class StartUp {
 
     void evolve() {
 
+    }
+
+    public Evolutions getEvolution() {
+        return evolution;
+    }
+
+    public void setEvolution(Evolutions evolution) {
+        this.evolution = evolution;
     }
 
     public String getName() {
