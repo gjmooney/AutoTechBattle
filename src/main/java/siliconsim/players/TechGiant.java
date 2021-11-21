@@ -1,5 +1,7 @@
 package main.java.siliconsim.players;
 
+import main.java.siliconsim.OddQuarterStrategy;
+
 import java.util.LinkedList;
 
 public abstract class TechGiant {
@@ -7,6 +9,7 @@ public abstract class TechGiant {
     Type type;
     int totalRevenue = 0;
     LinkedList<StartUp> startUps;
+    private OddQuarterStrategy oddQuarterStrategy;
 
     /**
      * Acquire new start ups.
@@ -36,6 +39,14 @@ public abstract class TechGiant {
         for (StartUp startUp : startUps) {
             totalRevenue += startUp.getHealth();
         }
+    }
+
+    public OddQuarterStrategy getOddQuarterStrategy() {
+        return oddQuarterStrategy;
+    }
+
+    public void setOddQuarterStrategy(OddQuarterStrategy oddQuarterStrategy) {
+        this.oddQuarterStrategy = oddQuarterStrategy;
     }
 
     public LinkedList<StartUp> getStartUps() {

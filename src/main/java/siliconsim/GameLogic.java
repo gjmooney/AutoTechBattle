@@ -65,7 +65,7 @@ public final class GameLogic {
         return battleManager;
     }
 
-    public static LinkedList<TechGiant> getAllTechGiants() {
+    public LinkedList<TechGiant> getAllTechGiants() {
         return allTechGiants;
     }
 

@@ -30,17 +30,21 @@ public class Main {
         System.out.println(willow.getHealth());
         QuarterEvents.taxCuts();
         System.out.println(willow.getHealth());
+
+        //TODO: implement turn changing
+        TechGiant playersTurn = logic.getAllTechGiants().get(0);
+
         do {
             // 0 and 1 are the odd quarters OKAY
             if (logic.getQuarter() == 0 || logic.getQuarter() == 2) {
                 logic.setQuarter(new OddQuarter());
-                logic.getCycleState().doQuarterEvent(logic.getQuarter());
+                logic.getCycleState().doQuarterEvent(logic.getQuarter(), playersTurn);
                 logic.changeQuarter();
             }
             // 1 and 3 are EVEN OKAY
             if (logic.getQuarter() == 1 || logic.getQuarter() == 3) {
                 logic.setQuarter(new EvenQuarter());
-                logic.getCycleState().doQuarterEvent(logic.getQuarter());
+                logic.getCycleState().doQuarterEvent(logic.getQuarter(), playersTurn);
                 logic.changeQuarter();
             }
         } while (!logic.isGameOver());
