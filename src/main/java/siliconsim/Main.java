@@ -1,5 +1,7 @@
 package main.java.siliconsim;
 
+import main.java.siliconsim.decorator.InternetDestroyerStartUp;
+import main.java.siliconsim.decorator.VcBaitStartUp;
 import main.java.siliconsim.players.*;
 
 public class Main {
@@ -23,6 +25,7 @@ public class Main {
         logic.addStartUp(greyRock);
         logic.addStartUp(xulin);
 
+        System.out.println("Willow" + willow.getDefense() + " " + willow.getLevel() + " " + willow.getType());
         //Tech giants acquire startups
         evilInc.addStartUp(willow);
         tepid.addStartUp(markHealth);
@@ -33,6 +36,13 @@ public class Main {
 
         //TODO: implement turn changing
         TechGiant playersTurn = logic.getAllTechGiants().get(0);
+
+        willow.listAttacks();
+        willow = new VcBaitStartUp(willow);
+        willow.listAttacks();
+        willow = new InternetDestroyerStartUp(willow);
+        willow.listAttacks();
+
 
         do {
             // 0 and 1 are the odd quarters OKAY

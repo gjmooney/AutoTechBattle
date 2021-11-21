@@ -1,12 +1,14 @@
 package main.java.siliconsim.players;
 
 import java.util.Random;
+
+import main.java.siliconsim.decorator.AttackList;
 import main.java.siliconsim.Constants;
-import main.java.siliconsim.Evolutions;
+import main.java.siliconsim.decorator.Evolutions;
 import main.java.siliconsim.attacks.AttackStrategy;
 
 // Template pattern, uses Strategy pattern for attacks
-public abstract class StartUp {
+public abstract class StartUp implements AttackList {
     private String name;
     private TechGiant owner; // TechGiant
     private Type type; // maybe
@@ -24,6 +26,7 @@ public abstract class StartUp {
         this.setOwner(null);
         this.setLevel(1);
         this.setChanceToMiss(10);
+        this.setEvolution(Evolutions.BRAND_NEW);
     }
 
     public StartUp(String name) {
@@ -31,14 +34,14 @@ public abstract class StartUp {
         this.setLevel(1);
         this.setChanceToMiss(10);
         this.setName(name);
+        this.setEvolution(Evolutions.BRAND_NEW);
     }
 
-    public void init() {
-        this.setOwner(null);
-        this.setLevel(1);
-        this.setChanceToMiss(10);
+    @Override
+    public void listAttacks() {
+        System.out.println("1) Talent Drain"
+                + "\n2) Trade Secret Theft");
     }
-
 
     public void setAttackStrategy(AttackStrategy strategy) {
         this.attackStrategy = strategy;

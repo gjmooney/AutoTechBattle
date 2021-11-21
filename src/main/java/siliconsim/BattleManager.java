@@ -55,9 +55,7 @@ public class BattleManager {
                 + defender.getHealth());
 
         System.out.println(attacker.getName() + ": Choose attack: ");
-        System.out.println("1) Talent Drain"
-                + "\n2) Trade Secret Theft"
-                + "\n3) Undercut Prices");
+        attacker.listAttacks();
         choice = in.nextInt();
         int damage = calcAttack(attacker, choice);
         System.out.println(attacker.getName() + " used " + attacker.getAttackStrategy().toString());
