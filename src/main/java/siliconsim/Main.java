@@ -38,10 +38,11 @@ public class Main {
         TechGiant playersTurn = logic.getAllTechGiants().get(0);
 
         willow.listAttacks();
-        willow = new VcBaitStartUp(willow);
-        willow.listAttacks();
-        willow = new InternetDestroyerStartUp(willow);
-        willow.listAttacks();
+        System.out.println("1 " + willow.getAttack());
+        willow.setLevel(4);
+        willow.setExp(124);
+
+        logic.getBattleManager().startBattle(willow, markHealth);
 
 
         do {

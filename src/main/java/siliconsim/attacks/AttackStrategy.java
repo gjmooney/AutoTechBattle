@@ -4,7 +4,7 @@ import main.java.siliconsim.players.Type;
 
 // Strategy pattern
 public interface AttackStrategy {
-    int attack(int netIncome);
+    double attack();
 
     Type getType();
 

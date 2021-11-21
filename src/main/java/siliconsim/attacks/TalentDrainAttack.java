@@ -6,8 +6,8 @@ public class TalentDrainAttack implements AttackStrategy {
     Type type = Type.FIN_TECH;
 
     @Override
-    public int attack(int netIncome) {
-        return netIncome * 2;
+    public double attack() {
+        return 1.1;
     }
 
     @Override

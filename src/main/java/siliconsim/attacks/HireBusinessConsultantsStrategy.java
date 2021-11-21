@@ -6,8 +6,8 @@ public class HireBusinessConsultantsStrategy implements AttackStrategy {
     Type type = Type.SOCIAL_MEDIA;
 
     @Override
-    public int attack(int netIncome) {
-        return netIncome * 6;
+    public double attack() {
+        return 1.3;
     }
 
     @Override

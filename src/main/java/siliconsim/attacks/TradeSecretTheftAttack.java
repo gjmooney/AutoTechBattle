@@ -6,8 +6,8 @@ public class TradeSecretTheftAttack implements AttackStrategy {
     Type type = Type.OPERATING_SYSTEM;
 
     @Override
-    public int attack(int netIncome) {
-        return netIncome * 5;
+    public double attack() {
+        return 1.2;
     }
 
     @Override

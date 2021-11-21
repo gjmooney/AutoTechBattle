@@ -50,9 +50,11 @@ public abstract class StartUp implements AttackList {
         this.attackStrategy = strategy;
     }
 
-    public int doAttack() {
+    public int doAttack(int opponentsDefense) {
         Random rand = new Random();
-        int damage = attackStrategy.attack(attack);
+        //int damage = attackStrategy.attack();
+
+        double damage = ((((((getLevel() * 2.0) / 5.0) + 2.0) * (double)(getAttack() / opponentsDefense)) * attackStrategy.attack()) / 50) + 20;
 
         //Attack does extra damage if it is the same type
         if (type.equals(attackStrategy.getType())) {
@@ -64,9 +66,13 @@ public abstract class StartUp implements AttackList {
 
         // attack does double damage if it's a crit
         if (critNumber <= getCritChance()) {
-            damage *= 2;
+            damage *= 1.5;
             System.out.println("It was a critical hit!");
         }
+
+        // Random multiplier for attack damage between 0.85 and 1.0
+        double num = (Math.random() * (1.0 - .85)) + .85;
+        damage *= num;
 
         if (damage < Constants.MINIMUM_DAMAGE_DONE) {
             damage = Constants.MINIMUM_DAMAGE_DONE;
@@ -78,12 +84,13 @@ public abstract class StartUp implements AttackList {
             damage = 0;
         }
 
-        return damage;
+        return (int) Math.ceil(damage);
     }
 
     public void getAttacked(int damage) {
-        int healthLost = damage - getDefense();
-        setHealth(getHealth() - healthLost);
+        System.out.println("RECIEVED DAMAGE " + damage);
+        //int healthLost = damage - getDefense();
+        setHealth(getHealth() - damage);
     }
 
     void battleOver(){

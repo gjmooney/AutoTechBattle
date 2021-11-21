@@ -57,7 +57,7 @@ public class BattleManager {
         System.out.println(attacker.getName() + ": Choose attack: ");
         attacker.listAttacks();
         choice = in.nextInt();
-        int damage = calcAttack(attacker, choice);
+        int damage = calcAttack(attacker, choice, defender.getDefense());
         System.out.println(attacker.getName() + " used " + attacker.getAttackStrategy().toString());
 
         if (damage > 0) {
@@ -139,9 +139,10 @@ public class BattleManager {
      * Assign attack strategy.
      * @param player Player that is attacking
      * @param attack Players choice of attack
+     * @param opponentsDefense Defense of Start-Up being attacked
      * @return Damage done by attack
      */
-    private int calcAttack(StartUp player, int attack) {
+    private int calcAttack(StartUp player, int attack, int opponentsDefense) {
         switch (attack) {
             case 1:
                 player.setAttackStrategy(new TalentDrainAttack());
@@ -159,7 +160,7 @@ public class BattleManager {
                 System.out.println("Not an attack");
         }
 
-        return player.doAttack();
+        return player.doAttack(opponentsDefense);
     }
 
     public boolean isFightOver() {
