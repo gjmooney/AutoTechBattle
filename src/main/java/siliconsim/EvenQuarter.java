@@ -42,7 +42,7 @@ public class EvenQuarter extends Cycle {
             return GameLogic.getLogic().getWildStartUps().get(num);
         } else {
             // Choose a random tech giant to battle, ignores 0 index because that is the player
-            int techGiantNumber = GameLogic.getLogic().getAllTechGiants().size();
+            int techGiantNumber = GameLogic.getLogic().getAllTechGiants().size() - 1;
             //int techGiantNum = (int) (Math.random() * (techGiantNumber - 1)) + 1;
             int techGiantNum = GameLogic.getLogic().getRandom().nextInt((techGiantNumber - 1) + 1) + 1;
             // Choose a random start up owned by that tech giant

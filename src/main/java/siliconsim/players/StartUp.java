@@ -65,12 +65,9 @@ public abstract class StartUp implements AttackList {
      * @return Amount of damage done
      */
     public int doAttack(int opponentsDefense) {
-        Random rand = new Random();
-        //int damage = attackStrategy.attack();
-        double attackDouble = (double) getAttack();
-        double defenseDouble = (double) opponentsDefense;
+        double attackDouble = getAttack();
 
-        double damage = ((((((getLevel() * 2.0) / 5.0) + 2.0) * (attackDouble / defenseDouble)) * attackStrategy.attack()) / 50) + 20;
+        double damage = ((((((getLevel() * 2.0) / 5.0) + 2.0) * (attackDouble / (double) opponentsDefense)) * attackStrategy.attack()) / 50) + 20;
 
         //Attack does extra damage if it is the same type
         if (type.equals(attackStrategy.getType())) {
@@ -78,7 +75,7 @@ public abstract class StartUp implements AttackList {
         }
 
         // Generate random number between 1 and 100
-        int critNumber = rand.nextInt(100) + 1;
+        int critNumber = GameLogic.getLogic().getRandom().nextInt(100) + 1;
 
         // attack does double damage if it's a crit
         if (critNumber <= getCritChance()) {
@@ -95,7 +92,7 @@ public abstract class StartUp implements AttackList {
         }
 
         // do no damage if attack misses
-        int missNumber = rand.nextInt(100) + 1;
+        int missNumber = GameLogic.getLogic().getRandom().nextInt(100) + 1;
         if (missNumber <= getChanceToMiss()) {
             damage = 0;
         }

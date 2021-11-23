@@ -11,6 +11,7 @@ public class QuarterEvents {
         System.out.println("tax cuts");
         for (StartUp su : GameLogic.getLogic().getAllOwnedStartUps()) {
             su.setMaxHealth((int) Math.ceil(su.getMaxHealth() * 1.2));
+            su.setCurrentHealth(su.getMaxHealth());
         }
     }
 
@@ -20,11 +21,9 @@ public class QuarterEvents {
 
     public static void monopolyBusting() {
         System.out.println("monopoly busting");
-
     }
 
     public static void lobbying() {
         System.out.println("lobbying");
-
     }
 }

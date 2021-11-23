@@ -56,7 +56,7 @@ public class BattleManager {
         if (player) {
             System.out.println("Health: \n" + attacker.getName() + " : "
                     + attacker.getCurrentHealth() + "/" + attacker.getMaxHealth()
-                    + defender.getName() + " : "
+                    + " " + defender.getName() + " : "
                     + defender.getCurrentHealth() + "/" + defender.getMaxHealth());
 
             System.out.println(attacker.getName() + ": Choose attack: ");
