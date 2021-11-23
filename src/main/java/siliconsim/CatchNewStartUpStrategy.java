@@ -1,11 +1,10 @@
 package main.java.siliconsim;
 
-import java.util.LinkedList;
-import main.java.siliconsim.players.StartUp;
+import main.java.siliconsim.players.TechGiant;
 
 public class CatchNewStartUpStrategy implements OddQuarterStrategy {
     @Override
-    public void doEvent(LinkedList<StartUp> startUps) {
-
+    public void doEvent(TechGiant techGiant) {
+        techGiant.setCatchWildStartUp(true);
     }
 }

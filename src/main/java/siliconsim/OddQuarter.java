@@ -1,14 +1,20 @@
 package main.java.siliconsim;
 
+import main.java.siliconsim.players.StartUp;
 import main.java.siliconsim.players.TechGiant;
 
 public class OddQuarter extends Cycle {
 
     @Override
     public void doQuarterEvent(int quarter, TechGiant techGiant) {
-        System.out.println("odd");
+
+        // Heal all start ups each odd quarter
+        for (StartUp su : GameLogic.getLogic().getAllStartUps()) {
+            su.setCurrentHealth(su.getMaxHealth());
+        }
+
         if (quarter == 0) {
-            System.out.println("It's Q1! Time for tax cuts! All Start Ups revenues increased by 20%!");
+            System.out.println("It's Q1! Time for tax cuts! All Start Ups have their revenues increased by 20%!");
             QuarterEvents.taxCuts();
         }
         if (quarter == 2) {
@@ -19,7 +25,8 @@ public class OddQuarter extends Cycle {
         do {
             System.out.println("What would you like to do?"
                     + "\n1) Gain Market Share for your start ups"
-                    + "\n2) Attempt to catch a new Start Up");
+                    + "\n2) Attempt to catch a new Start Up instead of battling a "
+                    + "\n   Tech Giant in the next quarter");
             choice = in.nextInt();
 
             switch (choice) {
@@ -37,7 +44,7 @@ public class OddQuarter extends Cycle {
         // reset choice
         choice = 0;
 
-        techGiant.getOddQuarterStrategy().doEvent(techGiant.getStartUps());
+        techGiant.getOddQuarterStrategy().doEvent(techGiant);
 
 
     }

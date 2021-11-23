@@ -1,9 +1,7 @@
 package main.java.siliconsim;
 
-import main.java.siliconsim.players.StartUp;
-
-import java.util.LinkedList;
+import main.java.siliconsim.players.TechGiant;
 
 public interface OddQuarterStrategy {
-    void doEvent(LinkedList<StartUp> startUps);
+    void doEvent(TechGiant techGiant);
 }

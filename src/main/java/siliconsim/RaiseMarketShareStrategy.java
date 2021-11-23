@@ -1,14 +1,13 @@
 package main.java.siliconsim;
 
 import main.java.siliconsim.players.StartUp;
-
-import java.util.LinkedList;
+import main.java.siliconsim.players.TechGiant;
 
 public class RaiseMarketShareStrategy implements OddQuarterStrategy {
     @Override
-    public void doEvent(LinkedList<StartUp> startUps) {
+    public void doEvent(TechGiant techGiant) {
         int oldMarketShare;
-        for (StartUp su : startUps) {
+        for (StartUp su : techGiant.getStartUps()) {
             oldMarketShare = su.getDefense();
             su.setDefense((int) Math.ceil(su.getDefense() * 1.2));
             System.out.println(su.getName() + "'s Market Share increased from "
