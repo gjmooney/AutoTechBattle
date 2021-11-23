@@ -5,15 +5,15 @@ import java.util.LinkedList;
 public class SocialMediaTechGiant extends TechGiant {
 
     public SocialMediaTechGiant() {
-        this.name = "Social Media";
-        this.type = Type.SOCIAL_MEDIA;
-        this.startUps = new LinkedList<>();
+        this.setName("Social Media Tech Giant");
     }
 
     public SocialMediaTechGiant(String name) {
-        this.name = name;
-        this.type = Type.SOCIAL_MEDIA;
-        this.startUps = new LinkedList<>();
+        super(name);
+    }
+
+    public void init() {
+        this.setType(Type.SOCIAL_MEDIA);
     }
 
     @Override

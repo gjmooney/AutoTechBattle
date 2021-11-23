@@ -5,15 +5,18 @@ import java.util.LinkedList;
 public class OsTechGiant extends TechGiant {
 
     public OsTechGiant() {
-        this.name = "Social Media";
-        this.type = Type.OPERATING_SYSTEM;
-        this.startUps = new LinkedList<>();
+        super();
+        this.setName("Social Media Tech Giant");
+        init();;
     }
 
     public OsTechGiant(String name) {
-        this.name = name;
-        this.type = Type.OPERATING_SYSTEM;
-        this.startUps = new LinkedList<>();
+        super(name);
+        init();
+    }
+
+    public void init() {
+        this.setType(Type.OPERATING_SYSTEM);
     }
 
     @Override

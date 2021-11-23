@@ -5,11 +5,23 @@ import main.java.siliconsim.OddQuarterStrategy;
 import java.util.LinkedList;
 
 public abstract class TechGiant {
-    String name;
-    Type type;
-    int totalRevenue = 0;
-    LinkedList<StartUp> startUps;
+    private String name;
+    private Type type;
+    private int totalRevenue = 0;
+    private LinkedList<StartUp> startUps;
     private OddQuarterStrategy oddQuarterStrategy;
+    private boolean catchWildStartUp;
+
+    public TechGiant() {
+        this.setStartUps(new LinkedList<>());
+        this.setCatchWildStartUp(false);
+    }
+
+    public TechGiant(String name) {
+        this.setName(name);
+        this.setStartUps(new LinkedList<>());
+        this.setCatchWildStartUp(false);
+    }
 
     /**
      * Acquire new start ups.
@@ -55,5 +67,37 @@ public abstract class TechGiant {
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public int getTotalRevenue() {
+        return totalRevenue;
+    }
+
+    public void setTotalRevenue(int totalRevenue) {
+        this.totalRevenue = totalRevenue;
+    }
+
+    public void setStartUps(LinkedList<StartUp> startUps) {
+        this.startUps = startUps;
+    }
+
+    public boolean isCatchWildStartUp() {
+        return catchWildStartUp;
+    }
+
+    public void setCatchWildStartUp(boolean catchWildStartUp) {
+        this.catchWildStartUp = catchWildStartUp;
     }
 }
