@@ -16,7 +16,7 @@ public class RealEstateStartUp extends StartUp {
     public void init() {
         this.setType(Type.REAL_ESTATE);
         this.setAttack(150);
-        this.setHealth(100);
+        this.setMaxHealth(100);
         this.setDefense(50);
         this.setCritChance(15);
     }

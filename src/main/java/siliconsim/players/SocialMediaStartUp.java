@@ -16,7 +16,7 @@ public class SocialMediaStartUp extends StartUp {
     public void init() {
         this.setType(Type.SOCIAL_MEDIA);
         this.setAttack(50);
-        this.setHealth(100);
+        this.setMaxHealth(100);
         this.setDefense(150);
         this.setCritChance(14);
     }

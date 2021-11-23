@@ -8,7 +8,7 @@ public class InternetDestroyerStartUp extends StartUpDecorator {
         super(evolvedStartUp);
         setAttack(getAttack() + 10);
         setDefense(getDefense() + 10);
-        setHealth(getHealth() + 100);
+        setMaxHealth(getMaxHealth() + 100);
         setEvolution(Evolutions.INTERNET_DESTROYER);
     }
 

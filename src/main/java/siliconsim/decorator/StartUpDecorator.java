@@ -9,7 +9,7 @@ public abstract class StartUpDecorator extends StartUp implements AttackList {
         this.evolvedStartUp = evolvedStartUp;
         setAttack(evolvedStartUp.getAttack());
         setDefense(evolvedStartUp.getDefense());
-        setHealth(evolvedStartUp.getHealth());
+        setMaxHealth(evolvedStartUp.getMaxHealth());
         setCritChance(evolvedStartUp.getCritChance());
         setType(evolvedStartUp.getType());
         setLevel(evolvedStartUp.getLevel());

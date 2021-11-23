@@ -50,9 +50,9 @@ public class BattleManager {
     private void doTurn(StartUp attacker, StartUp defender) {
         // Prompt for attack choice
         System.out.println("Health: \n" + attacker.getName() + " : "
-                + attacker.getHealth() + " | "
+                + attacker.getCurrentHealth() + "/" + attacker.getMaxHealth()
                 + defender.getName() + " : "
-                + defender.getHealth());
+                + defender.getCurrentHealth() + "/" + defender.getMaxHealth());
 
         System.out.println(attacker.getName() + ": Choose attack: ");
         attacker.listAttacks();
@@ -68,7 +68,7 @@ public class BattleManager {
         }
 
         defender.getAttacked(damage);
-        if (defender.getHealth() <= 0) {
+        if (defender.getCurrentHealth() <= 0) {
             setFightOver(true);
             winner = attacker;
             loser = defender;

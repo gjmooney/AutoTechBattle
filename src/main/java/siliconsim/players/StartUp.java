@@ -18,7 +18,8 @@ public abstract class StartUp implements AttackList {
     private int level;
     private int exp;
     private int attack; // net income
-    private int health; // revenue
+    private int currentHealth;
+    private int maxHealth; // revenue
     private int defense; // market share
     private int critChance; // chance for a critical hit
     private int chanceToMiss;
@@ -88,9 +89,9 @@ public abstract class StartUp implements AttackList {
     }
 
     public void getAttacked(int damage) {
-        System.out.println("RECIEVED DAMAGE " + damage);
+        System.out.println("RECEIVED DAMAGE " + damage);
         //int healthLost = damage - getDefense();
-        setHealth(getHealth() - damage);
+        setCurrentHealth(getCurrentHealth() - damage);
     }
 
     void battleOver(){
@@ -120,6 +121,8 @@ public abstract class StartUp implements AttackList {
             newStUp = new VcBaitStartUp(this);
             this.getOwner().addStartUp(newStUp);
             this.getOwner().removeStartUp(this);
+            GameLogic.getLogic().addStartUp(newStUp);
+            GameLogic.getLogic().removeStartUp(this);
             return newStUp;
         } else if (getLevel() == 10) {
             this.setEvolution(Evolutions.INTERNET_DESTROYER);
@@ -127,6 +130,8 @@ public abstract class StartUp implements AttackList {
             newStUp = new InternetDestroyerStartUp(this);
             this.getOwner().addStartUp(newStUp);
             this.getOwner().removeStartUp(this);
+            GameLogic.getLogic().addStartUp(newStUp);
+            GameLogic.getLogic().removeStartUp(this);
             return newStUp;
         }
         GameLogic.getLogic().setHasEvolved(false);
@@ -197,12 +202,20 @@ public abstract class StartUp implements AttackList {
         this.attack = attack;
     }
 
-    public int getHealth() {
-        return health;
+    public int getCurrentHealth() {
+        return currentHealth;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
+    public void setCurrentHealth(int currentHealth) {
+        this.currentHealth = currentHealth;
+    }
+
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
     }
 
     public int getDefense() {

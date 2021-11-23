@@ -16,7 +16,7 @@ public class HealthCareStartUp extends StartUp {
     public void init() {
         this.setType(Type.HEALTH_CARE);
         this.setAttack(100);
-        this.setHealth(100);
+        this.setMaxHealth(100);
         this.setDefense(100);
         this.setCritChance(13);
     }

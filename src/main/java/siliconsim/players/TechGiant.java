@@ -37,7 +37,7 @@ public abstract class TechGiant {
      */
     public void calcTotalRevenue() {
         for (StartUp startUp : startUps) {
-            totalRevenue += startUp.getHealth();
+            totalRevenue += startUp.getMaxHealth();
         }
     }
 
