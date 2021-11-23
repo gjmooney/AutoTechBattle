@@ -8,6 +8,7 @@ public class VcBaitStartUp extends StartUpDecorator {
         setAttack(getAttack() + 10);
         setDefense(getDefense() + 10);
         setHealth(getHealth() + 100);
+        setEvolution(Evolutions.VC_BAIT);
     }
 
     @Override

@@ -16,6 +16,7 @@ public abstract class StartUpDecorator extends StartUp implements AttackList {
         setName(evolvedStartUp.getName());
         setOwner(evolvedStartUp.getOwner());
         setExp(evolvedStartUp.getExp());
+        setOwner(evolvedStartUp.getOwner());
     }
 
     @Override
