@@ -1,7 +1,5 @@
 package main.java.siliconsim;
 
-import main.java.siliconsim.decorator.InternetDestroyerStartUp;
-import main.java.siliconsim.decorator.VcBaitStartUp;
 import main.java.siliconsim.players.*;
 
 public class Main {
@@ -20,40 +18,17 @@ public class Main {
         StartUp markHealth = new HealthCareStartUp("MarkHealth");
         StartUp greyRock = new FinTechStartUp("GreyRock");
         StartUp xulin = new SocialMediaStartUp("Xulin");
-        logic.addStartUp(willow);
-        logic.addStartUp(markHealth);
-        logic.addStartUp(greyRock);
-        logic.addStartUp(xulin);
+        logic.addOwnedStartUp(willow);
+        logic.addOwnedStartUp(markHealth);
+        logic.addWildStartUp(greyRock);
+        logic.addWildStartUp(xulin);
 
-        System.out.println("Willow" + willow.getDefense() + " " + willow.getLevel() + " " + willow.getType());
         //Tech giants acquire startups
         evilInc.addStartUp(willow);
         tepid.addStartUp(markHealth);
 
-        System.out.println(willow.getHealth());
-        QuarterEvents.taxCuts();
-        System.out.println(willow.getHealth());
-
         //TODO: implement turn changing
         TechGiant playersTurn = logic.getAllTechGiants().get(0);
-
-        willow.listAttacks();
-        System.out.println("1 " + willow.getAttack());
-        willow.setLevel(4);
-        willow.setExp(124);
-
-        markHealth.setHealth(1);
-        willow = logic.getBattleManager().startBattle(willow, markHealth);
-        willow.listAttacks();
-        willow.setLevel(9);
-        willow.setExp(728);
-
-        markHealth.setHealth(12);
-        willow.setHealth(120);
-        willow = logic.getBattleManager().startBattle(willow, markHealth);
-        willow.listAttacks();
-
-
         do {
             // 0 and 1 are the odd quarters OKAY
             if (logic.getQuarter() == 0 || logic.getQuarter() == 2) {

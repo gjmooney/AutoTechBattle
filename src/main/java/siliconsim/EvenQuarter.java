@@ -11,9 +11,11 @@ public class EvenQuarter extends Cycle {
         StartUp opponent;
 
         if (quarter == 1) {
+            System.out.println("It's Q2!");
             QuarterEvents.financialCrisis();
         }
         if (quarter == 3) {
+            System.out.println("It's Q4!");
             QuarterEvents.lobbying();
         }
 
@@ -25,6 +27,8 @@ public class EvenQuarter extends Cycle {
         }
 
         opponent = pickStartUpToBattleAgainst(techGiant.isCatchWildStartUp());
+        //reset isCatchWild selection
+        techGiant.setCatchWildStartUp(false);
         GameLogic.getLogic().getBattleManager().startBattle(techGiant.getStartUps().get(0), opponent);
 
     }

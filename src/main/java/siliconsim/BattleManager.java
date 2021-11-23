@@ -5,6 +5,8 @@ import main.java.siliconsim.attacks.HireBusinessConsultantsStrategy;
 import main.java.siliconsim.attacks.TalentDrainAttack;
 import main.java.siliconsim.attacks.TradeSecretTheftAttack;
 import main.java.siliconsim.attacks.UndercutPriceAttack;
+import main.java.siliconsim.decorator.InternetDestroyerStartUp;
+import main.java.siliconsim.decorator.VcBaitStartUp;
 import main.java.siliconsim.players.StartUp;
 import main.java.siliconsim.players.TechGiant;
 
@@ -31,10 +33,10 @@ public class BattleManager {
         // Prompt for attack choice
         do {
             if (turn == 1) {
-                doTurn(player1, player2);
+                doTurn(player1, player2, true);
                 turn = 2;
             } else {
-                doTurn(player2, player1);
+                doTurn(player2, player1, false);
                 turn = 1;
             }
         } while (!isFightOver());
@@ -47,26 +49,52 @@ public class BattleManager {
      * @param attacker start-up that is attacking
      * @param defender start-up that is defending
      */
-    private void doTurn(StartUp attacker, StartUp defender) {
+    private void doTurn(StartUp attacker, StartUp defender, boolean player) {
         // Prompt for attack choice
-        System.out.println("Health: \n" + attacker.getName() + " : "
-                + attacker.getCurrentHealth() + "/" + attacker.getMaxHealth()
-                + defender.getName() + " : "
-                + defender.getCurrentHealth() + "/" + defender.getMaxHealth());
+        int damage = 0;
+        if (player) {
+            System.out.println("Health: \n" + attacker.getName() + " : "
+                    + attacker.getCurrentHealth() + "/" + attacker.getMaxHealth()
+                    + defender.getName() + " : "
+                    + defender.getCurrentHealth() + "/" + defender.getMaxHealth());
 
-        System.out.println(attacker.getName() + ": Choose attack: ");
-        attacker.listAttacks();
-        choice = in.nextInt();
-        int damage = calcAttack(attacker, choice, defender.getDefense());
-        System.out.println(attacker.getName() + " used " + attacker.getAttackStrategy().toString());
+            System.out.println(attacker.getName() + ": Choose attack: ");
+            attacker.listAttacks();
+            choice = in.nextInt();
+            damage = calcAttack(attacker, choice, defender.getDefense());
+            System.out.println(attacker.getName() + " used " + attacker.getAttackStrategy().toString());
 
-        if (damage > 0) {
-            System.out.println(attacker.getName() + " did " + damage + " damage to "
-                    + defender.getName());
+            if (damage > 0) {
+                System.out.println(attacker.getName() + " did " + damage + " damage to "
+                        + defender.getName());
+            } else {
+                System.out.println(attacker.getName() + "'s attack missed!");
+            }
+
+
+
         } else {
-            System.out.println(attacker.getName() + "'s attack missed!");
+            int numOfChoices;
+            if (attacker instanceof InternetDestroyerStartUp) {
+                numOfChoices = 4;
+            } else if (attacker instanceof VcBaitStartUp){
+                numOfChoices = 3;
+            } else {
+                numOfChoices = 2;
+            }
+            choice = (int) (Math.random() * (numOfChoices - 1)) + 1;
+            damage = calcAttack(attacker, choice, defender.getDefense());
+            System.out.println(attacker.getName() + " used " + attacker.getAttackStrategy().toString());
+
+            if (damage > 0) {
+                System.out.println(attacker.getName() + " did " + damage + " damage to "
+                        + defender.getName());
+            } else {
+                System.out.println(attacker.getName() + "'s attack missed!");
+            }
         }
 
+        System.out.println();
         defender.getAttacked(damage);
         if (defender.getCurrentHealth() <= 0) {
             setFightOver(true);
@@ -85,8 +113,8 @@ public class BattleManager {
         boolean levelUp = false;
         System.out.println(winner.getName() + " has won the battle!");
 
-    // Award exp to all startups in owners portfolio
-    int expReceived = Constants.BASE_EXPERIENCE * loser.getLevel();
+        // Award exp to all startups in owners portfolio
+        int expReceived = Constants.BASE_EXPERIENCE * loser.getLevel();
 
         winner.setExp(winner.getExp() + expReceived);
         if (winner.levelCheck()) {
@@ -100,27 +128,36 @@ public class BattleManager {
             GameLogic.getLogic().setHasEvolved(false);
         }
 
+        // Wild start ups can't acquire start ups
+        if (winner.getOwner() != null) {
+            System.out.println("Add " + loser.getName() + " to "
+                    + winner.getOwnerName() + "'s portfolio?");
+            System.out.println("1) Yes \n2) No");
+            choice = in.nextInt();
 
-        System.out.println("Add " + loser.getName() + " to "
-                + winner.getOwnerName() + "'s portfolio?");
-        System.out.println("1) Yes \n2) No");
-        choice = in.nextInt();
+            if (choice == 1) {
+                // Startup has an owner
+                if (loser.getOwner() != null) {
+                    TechGiant losingTecgGiant = loser.getOwner();
+                    loser.getOwner().removeStartUp(loser);
+                    gameOverCheck(losingTecgGiant);
+                } else {
+                    // Wild Start up
+                    GameLogic.getLogic().removeWildStartUp(loser);
+                    GameLogic.getLogic().addOwnedStartUp(loser);
+                }
 
-        if (choice == 1) {
-            // Startup has an owner
-            if (loser.getOwner() != null) {
-                loser.getOwner().removeStartUp(loser);
+                winner.getOwner().addStartUp(loser);
+                System.out.println(loser.getName() + " has been added to "
+                        + winner.getOwnerName() + "'s portfolio");
+            } else {
+                System.out.println(loser.getName() + " was not acquired");
             }
 
-            winner.getOwner().addStartUp(loser);
-            System.out.println(loser.getName() + " has been added to "
-                    + winner.getOwnerName() + "'s portfolio");
-        } else {
-            System.out.println(loser.getName() + " was not acquired");
         }
 
         if (loser.getOwner() != null) {
-            gameOverCheck(loser.getOwner());
+
         }
 
         return winner;
@@ -133,6 +170,7 @@ public class BattleManager {
     private void gameOverCheck(TechGiant techGiant) {
         if (techGiant.getStartUps().isEmpty()) {
             GameLogic.getLogic().setGameOver(true);
+            System.out.println("GAME OVER");
         }
     }
 

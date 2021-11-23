@@ -107,4 +107,11 @@ public final class GameLogic {
     public void removeWildStartUp(StartUp startUp) {
         wildStartUps.remove(startUp);
     }
+
+    public LinkedList<StartUp> getAllStartUps() {
+        LinkedList<StartUp> list = new LinkedList<>();
+        list.addAll(getAllOwnedStartUps());
+        list.addAll(getWildStartUps());
+        return list;
+    }
 }

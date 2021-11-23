@@ -14,7 +14,7 @@ public class InternetDestroyerStartUp extends StartUpDecorator {
 
     @Override
     public void listAttacks() {
-        evolvedStartUp.listAttacks();
+        super.listAttacks();
         System.out.println("4) Undercut Prices");
 
     }

@@ -117,25 +117,31 @@ public abstract class StartUp implements AttackList {
         StartUp newStUp;
         if (getLevel() == 5) {
             this.setEvolution(Evolutions.VC_BAIT);
-            GameLogic.getLogic().setHasEvolved(true);
             newStUp = new VcBaitStartUp(this);
-            this.getOwner().addStartUp(newStUp);
-            this.getOwner().removeStartUp(this);
-            GameLogic.getLogic().addOwnedStartUp(newStUp);
-            GameLogic.getLogic().removeOwnedStartUp(this);
+            evolveCheckHelper(newStUp);
             return newStUp;
+
         } else if (getLevel() == 10) {
             this.setEvolution(Evolutions.INTERNET_DESTROYER);
-            GameLogic.getLogic().setHasEvolved(true);
             newStUp = new InternetDestroyerStartUp(this);
-            this.getOwner().addStartUp(newStUp);
-            this.getOwner().removeStartUp(this);
-            GameLogic.getLogic().addOwnedStartUp(newStUp);
-            GameLogic.getLogic().removeOwnedStartUp(this);
+            evolveCheckHelper(newStUp);
             return newStUp;
         }
         GameLogic.getLogic().setHasEvolved(false);
         return this;
+    }
+
+    public void evolveCheckHelper(StartUp startUp) {
+        GameLogic.getLogic().setHasEvolved(true);
+        if (this.getOwner() != null) {
+            this.getOwner().addStartUp(startUp);
+            this.getOwner().removeStartUp(this);
+            GameLogic.getLogic().addOwnedStartUp(startUp);
+            GameLogic.getLogic().removeOwnedStartUp(this);
+        } else {
+            GameLogic.getLogic().addWildStartUp(startUp);
+            GameLogic.getLogic().removeWildStartUp(this);
+        }
     }
 
     public Evolutions getEvolution() {
