@@ -11,7 +11,8 @@ public final class GameLogic {
     private static GameLogic logic;
     private static BattleManager battleManager;
     private static LinkedList<TechGiant> allTechGiants;
-    private static LinkedList<StartUp> allStartUps;
+    private static LinkedList<StartUp> ownedStartUps;
+    private static LinkedList<StartUp> wildStartUps;
     private static int quarter;
     private static Cycle cycleState;
     private static boolean hasEvolved;
@@ -20,7 +21,8 @@ public final class GameLogic {
     // Private constructor for Singleton pattern
     private GameLogic() {
         allTechGiants = new LinkedList<>();
-        allStartUps = new LinkedList<>();
+        ownedStartUps = new LinkedList<>();
+        wildStartUps = new LinkedList<>();
         battleManager = new BattleManager();
         cycleState = new OddQuarter();
         quarter = 0;
@@ -82,11 +84,27 @@ public final class GameLogic {
         allTechGiants.add(techGiant);
     }
 
-    public LinkedList<StartUp> getAllStartUps() {
-        return allStartUps;
+    public LinkedList<StartUp> getAllOwnedStartUps() {
+        return ownedStartUps;
     }
 
-    public void addStartUp(StartUp startUp) {
-        allStartUps.add(startUp);
+    public void addOwnedStartUp(StartUp startUp) {
+        ownedStartUps.add(startUp);
+    }
+
+    public void removeOwnedStartUp(StartUp startUp) {
+        ownedStartUps.remove(startUp);
+    }
+
+    public LinkedList<StartUp> getWildStartUps() {
+        return wildStartUps;
+    }
+
+    public void addWildStartUp(StartUp startUp) {
+        wildStartUps.add(startUp);
+    }
+
+    public void removeWildStartUp(StartUp startUp) {
+        wildStartUps.remove(startUp);
     }
 }

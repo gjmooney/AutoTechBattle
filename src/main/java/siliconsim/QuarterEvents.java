@@ -9,7 +9,7 @@ public class QuarterEvents {
      */
     public static void taxCuts() {
         System.out.println("tax cuts");
-        for (StartUp su : GameLogic.getLogic().getAllStartUps()) {
+        for (StartUp su : GameLogic.getLogic().getAllOwnedStartUps()) {
             su.setMaxHealth((int) Math.ceil(su.getMaxHealth() * 1.2));
         }
     }

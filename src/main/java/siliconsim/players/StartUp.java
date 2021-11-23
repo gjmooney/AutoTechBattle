@@ -121,8 +121,8 @@ public abstract class StartUp implements AttackList {
             newStUp = new VcBaitStartUp(this);
             this.getOwner().addStartUp(newStUp);
             this.getOwner().removeStartUp(this);
-            GameLogic.getLogic().addStartUp(newStUp);
-            GameLogic.getLogic().removeStartUp(this);
+            GameLogic.getLogic().addOwnedStartUp(newStUp);
+            GameLogic.getLogic().removeOwnedStartUp(this);
             return newStUp;
         } else if (getLevel() == 10) {
             this.setEvolution(Evolutions.INTERNET_DESTROYER);
@@ -130,8 +130,8 @@ public abstract class StartUp implements AttackList {
             newStUp = new InternetDestroyerStartUp(this);
             this.getOwner().addStartUp(newStUp);
             this.getOwner().removeStartUp(this);
-            GameLogic.getLogic().addStartUp(newStUp);
-            GameLogic.getLogic().removeStartUp(this);
+            GameLogic.getLogic().addOwnedStartUp(newStUp);
+            GameLogic.getLogic().removeOwnedStartUp(this);
             return newStUp;
         }
         GameLogic.getLogic().setHasEvolved(false);
