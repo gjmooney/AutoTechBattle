@@ -113,14 +113,21 @@ public abstract class StartUp implements AttackList {
     }
 
     public StartUp evolveCheck() {
+        StartUp newStUp;
         if (getLevel() == 5) {
             this.setEvolution(Evolutions.VC_BAIT);
             GameLogic.getLogic().setHasEvolved(true);
-            return new VcBaitStartUp(this);
+            newStUp = new VcBaitStartUp(this);
+            this.getOwner().addStartUp(newStUp);
+            this.getOwner().removeStartUp(this);
+            return newStUp;
         } else if (getLevel() == 10) {
             this.setEvolution(Evolutions.INTERNET_DESTROYER);
             GameLogic.getLogic().setHasEvolved(true);
-            return new InternetDestroyerStartUp(this);
+            newStUp = new InternetDestroyerStartUp(this);
+            this.getOwner().addStartUp(newStUp);
+            this.getOwner().removeStartUp(this);
+            return newStUp;
         }
         GameLogic.getLogic().setHasEvolved(false);
         return this;
