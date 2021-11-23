@@ -21,7 +21,7 @@ public class BattleManager {
      * @param player1 first tech giants start-up
      * @param player2 second tech giants start-up
      */
-    public void startBattle(StartUp player1, StartUp player2) {
+    public StartUp startBattle(StartUp player1, StartUp player2) {
         setFightOver(false);
 
         // player 1 goes first
@@ -39,7 +39,7 @@ public class BattleManager {
             }
         } while (!isFightOver());
 
-        battleOver(winner, loser);
+        return battleOver(winner, loser);
     }
 
     /**
@@ -81,26 +81,25 @@ public class BattleManager {
      * @param winner StartUp that won the battle
      * @param loser StartUp that lost the battle
      */
-    private void battleOver(StartUp winner, StartUp loser) {
+    private StartUp battleOver(StartUp winner, StartUp loser) {
         boolean levelUp = false;
         System.out.println(winner.getName() + " has won the battle!");
 
-        // Award exp to all startups in owners portfolio
-        int expReceived = Constants.BASE_EXPERIENCE * loser.getLevel();
-        for (StartUp su : winner.getOwner().getStartUps()) {
-            su.setExp(su.getExp() + expReceived);
+    // Award exp to all startups in owners portfolio
+    int expReceived = Constants.BASE_EXPERIENCE * loser.getLevel();
 
-            if (su.levelCheck()) {
-                System.out.println("Congratulations! " + su.getName()
-                        + " has reached level " + su.getLevel());
-                winner = su.evolveCheck();
-                if (GameLogic.getLogic().isHasEvolved()) {
-                    System.out.println(su.getName() + " has evolved into a "
-                    + su.getEvolutionString() + "!");
-                }
-                GameLogic.getLogic().setHasEvolved(false);
+        winner.setExp(winner.getExp() + expReceived);
+        if (winner.levelCheck()) {
+            System.out.println("Congratulations! " + winner.getName()
+                    + " has reached level " + winner.getLevel());
+            winner = winner.evolveCheck();
+            if (GameLogic.getLogic().isHasEvolved()) {
+                System.out.println(winner.getName() + " has evolved into a "
+                + winner.getEvolutionString() + "!");
             }
+            GameLogic.getLogic().setHasEvolved(false);
         }
+
 
         System.out.println("Add " + loser.getName() + " to "
                 + winner.getOwnerName() + "'s portfolio?");
@@ -123,6 +122,8 @@ public class BattleManager {
         if (loser.getOwner() != null) {
             gameOverCheck(loser.getOwner());
         }
+
+        return winner;
     }
 
     /**
