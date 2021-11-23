@@ -1,5 +1,6 @@
 package main.java.siliconsim;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import main.java.siliconsim.attacks.HireBusinessConsultantsStrategy;
 import main.java.siliconsim.attacks.TalentDrainAttack;
@@ -11,7 +12,7 @@ import main.java.siliconsim.players.StartUp;
 import main.java.siliconsim.players.TechGiant;
 
 public class BattleManager {
-    Scanner in = new Scanner(System.in);
+    Scanner in = new Scanner(System.in, StandardCharsets.UTF_8.name());
     int turn;
     int choice;
     boolean fightOver;

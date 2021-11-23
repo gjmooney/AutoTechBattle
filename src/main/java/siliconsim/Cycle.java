@@ -1,5 +1,6 @@
 package main.java.siliconsim;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import main.java.siliconsim.players.TechGiant;
 
@@ -9,7 +10,7 @@ import main.java.siliconsim.players.TechGiant;
 public abstract class Cycle {
     int choice = 0;
 
-    Scanner in = new Scanner(System.in);
+    Scanner in = new Scanner(System.in, StandardCharsets.UTF_8.name());
 
     public abstract void doQuarterEvent(int quarter, TechGiant techGiant);
 }

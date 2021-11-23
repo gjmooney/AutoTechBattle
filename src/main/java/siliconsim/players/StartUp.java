@@ -67,8 +67,10 @@ public abstract class StartUp implements AttackList {
     public int doAttack(int opponentsDefense) {
         Random rand = new Random();
         //int damage = attackStrategy.attack();
+        double attackDouble = (double) getAttack();
+        double defenseDouble = (double) opponentsDefense;
 
-        double damage = ((((((getLevel() * 2.0) / 5.0) + 2.0) * (double)(getAttack() / opponentsDefense)) * attackStrategy.attack()) / 50) + 20;
+        double damage = ((((((getLevel() * 2.0) / 5.0) + 2.0) * (attackDouble / defenseDouble)) * attackStrategy.attack()) / 50) + 20;
 
         //Attack does extra damage if it is the same type
         if (type.equals(attackStrategy.getType())) {

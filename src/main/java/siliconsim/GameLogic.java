@@ -1,7 +1,8 @@
 package main.java.siliconsim;
 
 import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.Random;
+
 import main.java.siliconsim.players.StartUp;
 import main.java.siliconsim.players.TechGiant;
 
@@ -15,16 +16,17 @@ public final class GameLogic {
     private static int quarter;
     private static Cycle cycleState;
     private static boolean hasEvolved;
-    static Scanner in = new Scanner(System.in);
+    private static Random random;
 
     // Private constructor for Singleton pattern
     private GameLogic() {
-        allTechGiants = new LinkedList<>();
-        ownedStartUps = new LinkedList<>();
-        wildStartUps = new LinkedList<>();
-        battleManager = new BattleManager();
-        cycleState = new OddQuarter();
-        quarter = 0;
+        setAllTechGiants(new LinkedList<>());
+        setOwnedStartUps(new LinkedList<>());
+        setWildStartUps(new LinkedList<>());
+        setBattleManager(new BattleManager());
+        setCycleState(new OddQuarter());
+        setQuarter(0);
+        setRandom(new Random());
     }
 
     /**
@@ -38,11 +40,15 @@ public final class GameLogic {
         return logic;
     }
 
+    public Random getRandom() {
+        return random;
+    }
+
     public boolean isHasEvolved() {
         return hasEvolved;
     }
 
-    public void setHasEvolved(boolean evolved) {
+    public static void setHasEvolved(boolean evolved) {
         hasEvolved = evolved;
     }
 
@@ -50,13 +56,17 @@ public final class GameLogic {
         return quarter;
     }
 
-    public void setQuarter(Cycle cycle) {
-        cycleState = cycle;
+    public static void setQuarter(int newQuarter) {
+        quarter = newQuarter;
     }
 
     public void changeQuarter() {
-        quarter = (quarter + 1) % 4;
+        setQuarter((quarter + 1) % 4);
         System.out.println(quarter);
+    }
+
+    public static void setCycleState(Cycle cycle) {
+        cycleState = cycle;
     }
 
     public Cycle getCycleState() {
@@ -67,7 +77,7 @@ public final class GameLogic {
         return gameOver;
     }
 
-    public void setGameOver(boolean isGameOver) {
+    public static void setGameOver(boolean isGameOver) {
         gameOver = isGameOver;
     }
 
@@ -105,6 +115,30 @@ public final class GameLogic {
 
     public void removeWildStartUp(StartUp startUp) {
         wildStartUps.remove(startUp);
+    }
+
+    public static void setLogic(GameLogic logic) {
+        GameLogic.logic = logic;
+    }
+
+    public static void setBattleManager(BattleManager battleManager) {
+        GameLogic.battleManager = battleManager;
+    }
+
+    public static void setAllTechGiants(LinkedList<TechGiant> allTechGiants) {
+        GameLogic.allTechGiants = allTechGiants;
+    }
+
+    public static void setOwnedStartUps(LinkedList<StartUp> ownedStartUps) {
+        GameLogic.ownedStartUps = ownedStartUps;
+    }
+
+    public static void setWildStartUps(LinkedList<StartUp> wildStartUps) {
+        GameLogic.wildStartUps = wildStartUps;
+    }
+
+    public static void setRandom(Random random) {
+        GameLogic.random = random;
     }
 
     /**
