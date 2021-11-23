@@ -42,7 +42,16 @@ public class Main {
         willow.setLevel(4);
         willow.setExp(124);
 
-        logic.getBattleManager().startBattle(willow, markHealth);
+        markHealth.setHealth(1);
+        willow = logic.getBattleManager().startBattle(willow, markHealth);
+        willow.listAttacks();
+        willow.setLevel(9);
+        willow.setExp(728);
+
+        markHealth.setHealth(12);
+        willow.setHealth(120);
+        willow = logic.getBattleManager().startBattle(willow, markHealth);
+        willow.listAttacks();
 
 
         do {
