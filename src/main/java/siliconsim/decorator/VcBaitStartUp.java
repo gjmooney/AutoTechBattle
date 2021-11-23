@@ -3,6 +3,13 @@ package main.java.siliconsim.decorator;
 import main.java.siliconsim.players.StartUp;
 
 public class VcBaitStartUp extends StartUpDecorator {
+
+    /**
+     * Constructor for middle evolution of start-ups.
+     * Implements decorate design pattern
+     * Gives a stat boost
+     * @param evolvedStartUp The start-up that is being evolved
+     */
     public VcBaitStartUp(StartUp evolvedStartUp) {
         super(evolvedStartUp);
         setAttack(getAttack() + 10);

@@ -4,6 +4,12 @@ import main.java.siliconsim.players.StartUp;
 
 public class InternetDestroyerStartUp extends StartUpDecorator {
 
+    /**
+     * Constructor for final evolution of start-ups.
+     * Implements decorate design pattern
+     * Gives a stat boost
+     * @param evolvedStartUp The start-up that is being evolved
+     */
     public InternetDestroyerStartUp(StartUp evolvedStartUp) {
         super(evolvedStartUp);
         setAttack(getAttack() + 10);

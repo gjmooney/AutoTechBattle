@@ -2,6 +2,9 @@ package main.java.siliconsim.players;
 
 public class FinTechStartUp extends StartUp {
 
+    /**
+     * Basic constructor for fin tech start-ups.
+     */
     public FinTechStartUp() {
         super();
         this.setName("Fin Tech");
@@ -13,6 +16,10 @@ public class FinTechStartUp extends StartUp {
         this.init();
     }
 
+    /**
+     * Initializer for fin tech start-ups.
+     * Sets type and initial stats
+     */
     public void init() {
         this.setType(Type.FIN_TECH);
         this.setAttack(50);

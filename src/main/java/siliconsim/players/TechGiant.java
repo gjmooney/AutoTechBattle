@@ -1,8 +1,7 @@
 package main.java.siliconsim.players;
 
-import main.java.siliconsim.OddQuarterStrategy;
-
 import java.util.LinkedList;
+import main.java.siliconsim.OddQuarterStrategy;
 
 public abstract class TechGiant {
     private String name;
@@ -12,11 +11,18 @@ public abstract class TechGiant {
     private OddQuarterStrategy oddQuarterStrategy;
     private boolean catchWildStartUp;
 
+    /**
+     * Basic constructor for tech giants.
+     */
     public TechGiant() {
         this.setStartUps(new LinkedList<>());
         this.setCatchWildStartUp(false);
     }
 
+    /**
+     * Tech giant constructor to set name.
+     * @param name Name of tech giant
+     */
     public TechGiant(String name) {
         this.setName(name);
         this.setStartUps(new LinkedList<>());

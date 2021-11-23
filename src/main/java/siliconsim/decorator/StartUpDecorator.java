@@ -5,6 +5,12 @@ import main.java.siliconsim.players.StartUp;
 public abstract class StartUpDecorator extends StartUp implements AttackList {
     protected StartUp evolvedStartUp;
 
+    /**
+     * Constructor for start-ups evolution decorator.
+     * Implements decorator design pattern
+     * Sets stats of evolved startup to original start-ups stats
+     * @param evolvedStartUp Start-up being evolved
+     */
     public StartUpDecorator(StartUp evolvedStartUp) {
         this.evolvedStartUp = evolvedStartUp;
         setAttack(evolvedStartUp.getAttack());

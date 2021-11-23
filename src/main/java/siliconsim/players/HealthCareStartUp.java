@@ -2,6 +2,9 @@ package main.java.siliconsim.players;
 
 public class HealthCareStartUp extends StartUp {
 
+    /**
+     * Basic constructor for health care start-ups.
+     */
     public HealthCareStartUp() {
         super();
         this.setName("Health Care");
@@ -13,6 +16,10 @@ public class HealthCareStartUp extends StartUp {
         this.init();
     }
 
+    /**
+     * Initializer for health care start-ups.
+     * Sets type and initial stats
+     */
     public void init() {
         this.setType(Type.HEALTH_CARE);
         this.setAttack(100);

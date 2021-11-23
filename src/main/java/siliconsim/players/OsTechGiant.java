@@ -1,13 +1,14 @@
 package main.java.siliconsim.players;
 
-import java.util.LinkedList;
-
 public class OsTechGiant extends TechGiant {
 
+    /**
+     * Basic constructor for Operating system tech giants.
+     */
     public OsTechGiant() {
         super();
         this.setName("Social Media Tech Giant");
-        init();;
+        init();
     }
 
     public OsTechGiant(String name) {

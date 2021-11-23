@@ -8,7 +8,6 @@ public class EvenQuarter extends Cycle {
     @Override
     public void doQuarterEvent(int quarter, TechGiant techGiant) {
         System.out.println("even");
-        StartUp opponent;
 
         if (quarter == 1) {
             System.out.println("It's Q2!");
@@ -26,7 +25,7 @@ public class EvenQuarter extends Cycle {
             System.out.print("another tech giant!\n");
         }
 
-        opponent = pickStartUpToBattleAgainst(techGiant.isCatchWildStartUp());
+        StartUp opponent = pickStartUpToBattleAgainst(techGiant.isCatchWildStartUp());
         //reset isCatchWild selection
         techGiant.setCatchWildStartUp(false);
         GameLogic.getLogic().getBattleManager().startBattle(techGiant.getStartUps().get(0), opponent);

@@ -1,12 +1,11 @@
 package main.java.siliconsim.players;
 
 import java.util.Random;
-
-import main.java.siliconsim.GameLogic;
-import main.java.siliconsim.decorator.AttackList;
 import main.java.siliconsim.Constants;
-import main.java.siliconsim.decorator.Evolutions;
+import main.java.siliconsim.GameLogic;
 import main.java.siliconsim.attacks.AttackStrategy;
+import main.java.siliconsim.decorator.AttackList;
+import main.java.siliconsim.decorator.Evolutions;
 import main.java.siliconsim.decorator.InternetDestroyerStartUp;
 import main.java.siliconsim.decorator.VcBaitStartUp;
 
@@ -26,6 +25,9 @@ public abstract class StartUp implements AttackList {
     private AttackStrategy attackStrategy;
     private Evolutions evolution;
 
+    /**
+     * Basic constructor for start-ups.
+     */
     public StartUp() {
         this.setOwner(null);
         this.setLevel(1);
@@ -33,6 +35,10 @@ public abstract class StartUp implements AttackList {
         this.setEvolution(Evolutions.BRAND_NEW);
     }
 
+    /**
+     * Start-up constructor to set name.
+     * @param name Name of start-up
+     */
     public StartUp(String name) {
         this.setOwner(null);
         this.setLevel(1);
@@ -51,6 +57,13 @@ public abstract class StartUp implements AttackList {
         this.attackStrategy = strategy;
     }
 
+    /**
+     * Perform an attack.
+     * Calculates damage based on attackers level, attack stat, opponents defense stat
+     * and modifier from selected attack strategy
+     * @param opponentsDefense Defense stat of start-up being attacked
+     * @return Amount of damage done
+     */
     public int doAttack(int opponentsDefense) {
         Random rand = new Random();
         //int damage = attackStrategy.attack();
@@ -88,9 +101,11 @@ public abstract class StartUp implements AttackList {
         return (int) Math.ceil(damage);
     }
 
+    /**
+     * Lose health from being attacked.
+     * @param damage Damage done by attacker
+     */
     public void getAttacked(int damage) {
-        System.out.println("RECEIVED DAMAGE " + damage);
-        //int healthLost = damage - getDefense();
         setCurrentHealth(getCurrentHealth() - damage);
     }
 
@@ -113,6 +128,10 @@ public abstract class StartUp implements AttackList {
         return false;
     }
 
+    /**
+     * Checks is winner of battle has evolved.
+     * @return Either the original start-up or the evolved form
+     */
     public StartUp evolveCheck() {
         StartUp newStUp;
         if (getLevel() == 5) {
@@ -131,6 +150,11 @@ public abstract class StartUp implements AttackList {
         return this;
     }
 
+    /**
+     * Helper method for evolveCheck().
+     * Extracts common code
+     * @param startUp Newly evovled start-up
+     */
     public void evolveCheckHelper(StartUp startUp) {
         GameLogic.getLogic().setHasEvolved(true);
         if (this.getOwner() != null) {

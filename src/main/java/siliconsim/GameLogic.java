@@ -2,7 +2,6 @@ package main.java.siliconsim;
 
 import java.util.LinkedList;
 import java.util.Scanner;
-
 import main.java.siliconsim.players.StartUp;
 import main.java.siliconsim.players.TechGiant;
 
@@ -108,6 +107,10 @@ public final class GameLogic {
         wildStartUps.remove(startUp);
     }
 
+    /**
+     * Get a list of all start-ups in the game.
+     * @return List of all start-ups
+     */
     public LinkedList<StartUp> getAllStartUps() {
         LinkedList<StartUp> list = new LinkedList<>();
         list.addAll(getAllOwnedStartUps());

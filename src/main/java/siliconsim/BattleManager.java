@@ -70,14 +70,11 @@ public class BattleManager {
             } else {
                 System.out.println(attacker.getName() + "'s attack missed!");
             }
-
-
-
         } else {
             int numOfChoices;
             if (attacker instanceof InternetDestroyerStartUp) {
                 numOfChoices = 4;
-            } else if (attacker instanceof VcBaitStartUp){
+            } else if (attacker instanceof VcBaitStartUp) {
                 numOfChoices = 3;
             } else {
                 numOfChoices = 2;
@@ -123,7 +120,7 @@ public class BattleManager {
             winner = winner.evolveCheck();
             if (GameLogic.getLogic().isHasEvolved()) {
                 System.out.println(winner.getName() + " has evolved into a "
-                + winner.getEvolutionString() + "!");
+                        + winner.getEvolutionString() + "!");
             }
             GameLogic.getLogic().setHasEvolved(false);
         }
@@ -138,9 +135,9 @@ public class BattleManager {
             if (choice == 1) {
                 // Startup has an owner
                 if (loser.getOwner() != null) {
-                    TechGiant losingTecgGiant = loser.getOwner();
+                    TechGiant losingTechGiant = loser.getOwner();
                     loser.getOwner().removeStartUp(loser);
-                    gameOverCheck(losingTecgGiant);
+                    gameOverCheck(losingTechGiant);
                 } else {
                     // Wild Start up
                     GameLogic.getLogic().removeWildStartUp(loser);
@@ -155,11 +152,6 @@ public class BattleManager {
             }
 
         }
-
-        if (loser.getOwner() != null) {
-
-        }
-
         return winner;
     }
 

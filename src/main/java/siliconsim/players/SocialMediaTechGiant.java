@@ -1,15 +1,19 @@
 package main.java.siliconsim.players;
 
-import java.util.LinkedList;
-
 public class SocialMediaTechGiant extends TechGiant {
 
+    /**
+     * Basic constructor for social media tech giants.
+     */
     public SocialMediaTechGiant() {
+        super();
         this.setName("Social Media Tech Giant");
+        init();
     }
 
     public SocialMediaTechGiant(String name) {
         super(name);
+        init();
     }
 
     public void init() {
