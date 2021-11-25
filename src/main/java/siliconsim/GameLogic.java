@@ -40,6 +40,17 @@ public final class GameLogic {
         return logic;
     }
 
+    /**
+     * Generate an int to mimic a players choice.
+     * @param max Top end of range (exclusive)
+     * @param min Lower end of range (inclusive)
+     * @return Int between min (inclusive) and max (exclusive)
+     */
+    public int generateChoice(int max, int min) {
+        System.out.println((int) (Math.random() * (max - min)) + min);
+        return (int) (Math.random() * (max - min)) + min;
+    }
+
     public Random getRandom() {
         return random;
     }

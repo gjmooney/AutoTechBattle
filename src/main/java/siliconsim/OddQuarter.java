@@ -35,7 +35,10 @@ public class OddQuarter extends Cycle {
                 System.out.println("There are no more wild start ups to catch!");
             }
 
-            choice = in.nextInt();
+            //choice = in.nextInt();
+            choice = GameLogic.getLogic().generateChoice(3, 1);
+            System.out.println("Your choice: " + choice);
+
             // This counts as exception handling
             if (choice == 1 || choice == 2) {
                 validInput = true;

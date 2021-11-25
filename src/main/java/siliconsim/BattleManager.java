@@ -61,7 +61,12 @@ public class BattleManager {
 
             System.out.println(attacker.getName() + ": Choose attack: ");
             attacker.listAttacks();
-            choice = in.nextInt();
+
+            //choice = in.nextInt();
+            int numOfChoices = findNumberOfAttacks(attacker);
+            choice = GameLogic.getLogic().generateChoice((numOfChoices + 1), 2);
+            System.out.println("Your choice: " + choice);
+
             damage = calcAttack(attacker, choice, defender.getDefense());
             System.out.println(attacker.getName() + " used " + attacker.getAttackStrategy().toString());
 
@@ -72,14 +77,7 @@ public class BattleManager {
                 System.out.println(attacker.getName() + "'s attack missed!");
             }
         } else {
-            int numOfChoices;
-            if (attacker instanceof InternetDestroyerStartUp) {
-                numOfChoices = 4;
-            } else if (attacker instanceof VcBaitStartUp) {
-                numOfChoices = 3;
-            } else {
-                numOfChoices = 2;
-            }
+            int numOfChoices = findNumberOfAttacks(attacker);
             choice = (int) (Math.random() * (numOfChoices - 1)) + 1;
             damage = calcAttack(attacker, choice, defender.getDefense());
             System.out.println(attacker.getName() + " used " + attacker.getAttackStrategy().toString());
@@ -100,6 +98,23 @@ public class BattleManager {
             loser = defender;
             System.out.println(defender.getName() + " has fainted!");
         }
+    }
+
+    /**
+     * Helper method to get an int for the number of attacks a stat-up has.
+     * @param startUp The start-up being queried
+     * @return Number of attacks a start-up has
+     */
+    private int findNumberOfAttacks(StartUp startUp) {
+        int numberOfAttacks;
+        if (startUp instanceof InternetDestroyerStartUp) {
+            numberOfAttacks = 4;
+        } else if (startUp instanceof VcBaitStartUp) {
+            numberOfAttacks = 3;
+        } else {
+            numberOfAttacks = 2;
+        }
+        return numberOfAttacks;
     }
 
     /**
@@ -131,7 +146,9 @@ public class BattleManager {
             System.out.println("Add " + loser.getName() + " to "
                     + winner.getOwnerName() + "'s portfolio?");
             System.out.println("1) Yes \n2) No");
-            choice = in.nextInt();
+            //choice = in.nextInt();
+            choice = GameLogic.getLogic().generateChoice(3, 1);
+            System.out.println("Your choice: " + choice);
 
             if (choice == 1) {
                 // Startup has an owner

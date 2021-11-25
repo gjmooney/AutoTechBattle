@@ -27,7 +27,7 @@ public class Main {
         evilInc.addStartUp(willow);
         tepid.addStartUp(markHealth);
 
-        //TODO: implement turn changing
+        //Player is the first tech giant
         TechGiant playersTurn = logic.getAllTechGiants().get(0);
         do {
             // 0 and 1 are the odd quarters OKAY
@@ -43,8 +43,5 @@ public class Main {
                 logic.changeQuarter();
             }
         } while (!logic.isGameOver());
-
-        //logic.getBattleManager().startBattle(willow, markHealth);
-
     }
 }
