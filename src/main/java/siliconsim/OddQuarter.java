@@ -22,24 +22,41 @@ public class OddQuarter extends Cycle {
             QuarterEvents.monopolyBusting();
         }
 
+        boolean validInput;
         do {
             System.out.println("What would you like to do?"
-                    + "\n1) Gain Market Share for your start ups"
-                    + "\n2) Attempt to catch a new Start Up instead of battling a "
-                    + "\n   Tech Giant in the next quarter");
-            choice = in.nextInt();
+                    + "\n1) Gain Market Share for your start ups");
 
+            // Only display choice to catch wild start up if there is at least one left
+            if (!GameLogic.getLogic().getWildStartUps().isEmpty()) {
+                System.out.println("2) Attempt to catch a new Start Up instead of battling a "
+                        + "\n   Tech Giant in the next quarter");
+            } else {
+                System.out.println("There are no more wild start ups to catch!");
+            }
+
+            choice = in.nextInt();
+            // This counts as exception handling
+            if (choice == 1 || choice == 2) {
+                validInput = true;
+            } else {
+                validInput = false;
+            }
             switch (choice) {
                 case 1:
                     techGiant.setOddQuarterStrategy(new RaiseMarketShareStrategy());
                     break;
                 case 2:
-                    techGiant.setOddQuarterStrategy(new CatchNewStartUpStrategy());
+                    if (GameLogic.getLogic().getWildStartUps().isEmpty())  {
+                        choice = 0;
+                    } else {
+                        techGiant.setOddQuarterStrategy(new CatchNewStartUpStrategy());
+                    }
                     break;
                 default:
                     System.out.println("Please choose one of the options");
             }
-        } while (choice == 0);
+        } while (!validInput);
 
         // reset choice
         choice = 0;
