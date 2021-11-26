@@ -8,14 +8,14 @@ public class EvenQuarter extends Cycle {
     @Override
     public void doQuarterEvent(int quarter, TechGiant techGiant) {
         if (quarter == 1) {
-            System.out.println("It's Q2! Oh no! Another financial crisis! "
+            System.out.println("\nIt's Q2! Oh no! Another financial crisis! "
                     + "\nAll starts ups lost 20% of their market share and income");
             System.out.println("Wait, what's this? Fin Techs are getting bailed out!"
                     + "\nThey avoided any losses!");
             QuarterEvents.financialCrisis();
         }
         if (quarter == 3) {
-            System.out.println("It's Q4! Those legal departments have been busy in DC!"
+            System.out.println("\nIt's Q4! Those legal departments have been busy in DC!"
                     + "They're lobbying efforts have increased market share for all start ups by 20%!");
             QuarterEvents.lobbying();
         }

@@ -26,21 +26,57 @@ public class Main {
         StartUp markHealth = new HealthCareStartUp("MarkHealth");
         StartUp greyRock = new FinTechStartUp("GreyRock");
         StartUp xulin = new SocialMediaStartUp("Xulin");
+        StartUp darkRock = new FinTechStartUp("DarkRock");
+        StartUp noSpace = new SocialMediaStartUp("NoSpace");
 
-        //Set up willow and markhealth to evolve after next win
-        willow.setLevel(4);
+        System.out.println("TEST");
+
+        //Set up some startups to evolve after next win
+        for (int i = 1; i < 4; i++) {
+            willow.setExp(i * i * i);
+            willow.levelCheck();
+            willow.evolveCheck();
+
+            markHealth.setExp(i * i * i);
+            markHealth.levelCheck();
+            markHealth.evolveCheck();
+        }
         willow.setExp(63);
-        markHealth.setLevel(4);
         markHealth.setExp(63);
 
-        GameLogic.getLogic().addOwnedStartUp(willow);
-        GameLogic.getLogic().addOwnedStartUp(markHealth);
-        GameLogic.getLogic().addWildStartUp(greyRock);
-        GameLogic.getLogic().addWildStartUp(xulin);
+        // Set some start-ups to evolve to max level after next win
+        for (int i = 1; i < 9; i++) {
+            darkRock.setExp(i * i * i);
+            darkRock.levelCheck();
+            darkRock.evolveCheck();
+
+            noSpace.setExp(i * i * i);
+            noSpace.levelCheck();
+            noSpace.evolveCheck();
+
+            darkRock.setExp(i * i * i);
+            darkRock.levelCheck();
+            darkRock.evolveCheck();
+
+            noSpace.setExp(i * i * i);
+            noSpace.levelCheck();
+            noSpace.evolveCheck();
+        }
+        darkRock.setExp(728);
+        noSpace.setExp(728);
 
         //Tech giants acquire startups
         evilInc.addStartUp(willow);
+        evilInc.addStartUp(darkRock);
         tepid.addStartUp(markHealth);
+        tepid.addStartUp(noSpace);
+        GameLogic.getLogic().addOwnedStartUp(darkRock);
+        GameLogic.getLogic().addOwnedStartUp(noSpace);
+        GameLogic.getLogic().addOwnedStartUp(willow);
+        GameLogic.getLogic().addOwnedStartUp(markHealth);
+
+        GameLogic.getLogic().addWildStartUp(greyRock);
+        GameLogic.getLogic().addWildStartUp(xulin);
 
         //Player is the first tech giant
         TechGiant playersTurn = GameLogic.getLogic().getAllTechGiants().get(0);

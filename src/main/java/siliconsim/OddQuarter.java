@@ -13,11 +13,11 @@ public class OddQuarter extends Cycle {
         }
 
         if (quarter == 0) {
-            System.out.println("It's Q1! Time for tax cuts! All Start Ups have their revenues increased by 20%!");
+            System.out.println("\nIt's Q1! Time for tax cuts! All Start Ups have their revenues increased by 20%!");
             QuarterEvents.taxCuts();
         }
         if (quarter == 2) {
-            System.out.println("It's Q3! Monopolies are being busted!"
+            System.out.println("\nIt's Q3! Monopolies are being busted!"
                     + "Start ups with over 300 Market share are losing 20%!"
                     + "\nSmaller starts up gained 20% market share!");
             QuarterEvents.monopolyBusting();

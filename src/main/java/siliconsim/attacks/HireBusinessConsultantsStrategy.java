@@ -14,4 +14,9 @@ public class HireBusinessConsultantsStrategy implements AttackStrategy {
     public Type getType() {
         return type;
     }
+
+    @Override
+    public String toString() {
+        return "Hire Business Consultants Attack";
+    }
 }
