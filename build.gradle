@@ -7,7 +7,7 @@ apply plugin: 'application'
 apply plugin: 'jacoco'
 
 
-mainClassName = 'main.java.silicon_sim.Main'
+mainClassName = 'main.java.siliconsim.Main'
 
 
 // In this section you declare where to find the dependencies of your project
@@ -46,6 +46,12 @@ checkstyle {
 ///////////////////////////////////////////////////////////////////////
 // To generate an HTML report instead of XML
 spotbugsMain {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+spotbugsTest {
     reports {
         xml.enabled = false
         html.enabled = true
