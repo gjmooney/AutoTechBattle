@@ -59,7 +59,7 @@ public final class GameLogic {
         return hasEvolved;
     }
 
-    public static void setHasEvolved(boolean evolved) {
+    public void setHasEvolved(boolean evolved) {
         hasEvolved = evolved;
     }
 
@@ -76,7 +76,7 @@ public final class GameLogic {
         System.out.println(quarter);
     }
 
-    public static void setCycleState(Cycle cycle) {
+    public void setCycleState(Cycle cycle) {
         cycleState = cycle;
     }
 

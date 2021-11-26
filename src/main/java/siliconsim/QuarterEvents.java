@@ -27,12 +27,15 @@ public class QuarterEvents {
     }
 
     /**
-     * Reduce revenue for start-ups with more than 300 market share
+     * Reduce revenue for start-ups with more than 300 market share raise it otherwise
      */
     public static void monopolyBusting() {
         for (StartUp su : GameLogic.getLogic().getAllStartUps()) {
             if (su.getDefense() > 300) {
                 su.setMaxHealth((int) Math.ceil(su.getMaxHealth() * 0.8));
+                su.setCurrentHealth(su.getMaxHealth());
+            } else {
+                su.setMaxHealth((int) Math.ceil(su.getMaxHealth() * 1.2));
                 su.setCurrentHealth(su.getMaxHealth());
             }
         }

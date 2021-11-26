@@ -108,10 +108,6 @@ public abstract class StartUp implements AttackList {
         setCurrentHealth(getCurrentHealth() - damage);
     }
 
-    void battleOver(){
-
-    }
-
     /**
      * Checks if start up has enough exp to level up.
      * @return true if start-up gained a level, false otherwise
