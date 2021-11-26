@@ -46,7 +46,6 @@ public final class GameLogic {
      * @return Int between min (inclusive) and max (exclusive)
      */
     public int generateChoice(int max, int min) {
-        System.out.println((int) (Math.random() * (max - min)) + min);
         return (int) (Math.random() * (max - min)) + min;
     }
 
@@ -72,7 +71,6 @@ public final class GameLogic {
 
     public void changeQuarter() {
         setQuarter((quarter + 1) % 4);
-        System.out.println(quarter);
     }
 
     public static void setCycleState(Cycle cycle) {

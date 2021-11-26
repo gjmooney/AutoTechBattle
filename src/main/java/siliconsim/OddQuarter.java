@@ -7,7 +7,6 @@ public class OddQuarter extends Cycle {
 
     @Override
     public void doQuarterEvent(int quarter, TechGiant techGiant) {
-
         // Heal all start ups each odd quarter
         for (StartUp su : GameLogic.getLogic().getAllStartUps()) {
             su.setCurrentHealth(su.getMaxHealth());
@@ -18,7 +17,9 @@ public class OddQuarter extends Cycle {
             QuarterEvents.taxCuts();
         }
         if (quarter == 2) {
-            System.out.println("It's Q3! Monopolies are being busted!");
+            System.out.println("It's Q3! Monopolies are being busted!"
+                    + "Start ups with over 300 Market share are losing 20%!"
+                    + "\nSmaller starts up gained 20% market share!");
             QuarterEvents.monopolyBusting();
         }
 

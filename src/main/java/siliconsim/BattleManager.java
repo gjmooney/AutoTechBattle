@@ -78,7 +78,7 @@ public class BattleManager {
             }
         } else {
             int numOfChoices = findNumberOfAttacks(attacker);
-            choice = (int) (Math.random() * (numOfChoices - 1)) + 1;
+            choice = GameLogic.getLogic().generateChoice(numOfChoices + 1, 1);
             damage = calcAttack(attacker, choice, defender.getDefense());
             System.out.println(attacker.getName() + " used " + attacker.getAttackStrategy().toString());
 
@@ -180,7 +180,8 @@ public class BattleManager {
     private void gameOverCheck(TechGiant techGiant) {
         if (techGiant.getStartUps().isEmpty()) {
             GameLogic.getLogic().setGameOver(true);
-            System.out.println("GAME OVER");
+            System.out.println(techGiant.getName() + "has no more start-ups!"
+                    + "\n" + techGiant.getName() + " is out of the game!");
         }
     }
 

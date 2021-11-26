@@ -7,8 +7,6 @@ public class EvenQuarter extends Cycle {
 
     @Override
     public void doQuarterEvent(int quarter, TechGiant techGiant) {
-        System.out.println("even");
-
         if (quarter == 1) {
             System.out.println("It's Q2! Oh no! Another financial crisis! "
                     + "\nAll starts ups lost 20% of their market share and income");
@@ -32,8 +30,15 @@ public class EvenQuarter extends Cycle {
         StartUp opponent = pickStartUpToBattleAgainst(techGiant.isCatchWildStartUp());
         //reset isCatchWild selection
         techGiant.setCatchWildStartUp(false);
-        GameLogic.getLogic().getBattleManager().startBattle(techGiant.getStartUps().get(0), opponent);
+        StartUp fighter = chooseFighter(techGiant);
+        GameLogic.getLogic().getBattleManager().startBattle(fighter, opponent);
 
+    }
+
+    private StartUp chooseFighter(TechGiant techGiant) {
+        int options = techGiant.getStartUps().size();
+        int choice = GameLogic.getLogic().generateChoice(options, 0);
+        return techGiant.getStartUps().get(choice);
     }
 
     private StartUp pickStartUpToBattleAgainst(boolean isWild) {
@@ -49,7 +54,6 @@ public class EvenQuarter extends Cycle {
             int techGiantNum = GameLogic.getLogic().generateChoice(techGiantNumber, 1);
             // Choose a random start up owned by that tech giant
             int startUpIndexNum = GameLogic.getLogic().getAllTechGiants().get(techGiantNum).getStartUps().size();
-            System.out.println("SUINDEX" + startUpIndexNum);
             int startUpNum = GameLogic.getLogic().getRandom().nextInt(startUpIndexNum);
             return GameLogic.getLogic().getAllTechGiants().get(techGiantNum).getStartUps().get(startUpNum);
         }

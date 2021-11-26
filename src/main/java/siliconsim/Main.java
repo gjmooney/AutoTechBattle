@@ -26,6 +26,13 @@ public class Main {
         StartUp markHealth = new HealthCareStartUp("MarkHealth");
         StartUp greyRock = new FinTechStartUp("GreyRock");
         StartUp xulin = new SocialMediaStartUp("Xulin");
+
+        //Set up willow and markhealth to evolve after next win
+        willow.setLevel(4);
+        willow.setExp(63);
+        markHealth.setLevel(4);
+        markHealth.setExp(63);
+        
         GameLogic.getLogic().addOwnedStartUp(willow);
         GameLogic.getLogic().addOwnedStartUp(markHealth);
         GameLogic.getLogic().addWildStartUp(greyRock);
