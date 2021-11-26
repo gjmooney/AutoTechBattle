@@ -1,18 +1,22 @@
 package test.java;
 
+import static org.junit.Assert.assertEquals;
+
 import main.java.siliconsim.GameLogic;
 import main.java.siliconsim.QuarterEvents;
-import main.java.siliconsim.players.*;
+import main.java.siliconsim.players.FinTechStartUp;
+import main.java.siliconsim.players.HealthCareStartUp;
+import main.java.siliconsim.players.OsTechGiant;
+import main.java.siliconsim.players.RealEstateStartUp;
+import main.java.siliconsim.players.SocialMediaStartUp;
+import main.java.siliconsim.players.SocialMediaTechGiant;
+import main.java.siliconsim.players.StartUp;
+import main.java.siliconsim.players.TechGiant;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class QuarterEventsTest {
-
-    GameLogic testLogic = GameLogic.getLogic();
-
     //Create tech giants
     TechGiant tesTg1 = new SocialMediaTechGiant("tesTg1");
     TechGiant tesTg2 = new OsTechGiant("tesTg2");
@@ -23,23 +27,39 @@ public class QuarterEventsTest {
     StartUp testSu3 = new FinTechStartUp("testSu3");
     StartUp testSu4 = new SocialMediaStartUp("testSu4");
 
+    /**
+     * Add tech giants and start-ups to main list.
+     */
     @Before
-    public void setUp() throws Exception {
-        testLogic.addTechGiant(tesTg1);
-        testLogic.addTechGiant(tesTg2);
+    public void setUp() {
+        GameLogic.getLogic();
+        GameLogic.getLogic().addTechGiant(tesTg1);
+        GameLogic.getLogic().addTechGiant(tesTg2);
 
-        testLogic.addOwnedStartUp(testSu1);
-        testLogic.addOwnedStartUp(testSu2);
-        testLogic.addWildStartUp(testSu3);
-        testLogic.addWildStartUp(testSu4);
+        GameLogic.getLogic().addOwnedStartUp(testSu1);
+        GameLogic.getLogic().addOwnedStartUp(testSu2);
+        GameLogic.getLogic().addOwnedStartUp(testSu3);
+        GameLogic.getLogic().addOwnedStartUp(testSu4);
 
         tesTg1.addStartUp(testSu1);
         tesTg2.addStartUp(testSu2);
+        tesTg1.addStartUp(testSu3);
+        tesTg2.addStartUp(testSu4);
     }
 
+    /**
+     * Reset tech giant and start up lists.
+     */
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
+        GameLogic.getLogic().setAllTechGiants(null);
+        GameLogic.getLogic().setOwnedStartUps(null);
 
+        tesTg1.removeStartUp(testSu1);
+        tesTg2.removeStartUp(testSu2);
+        tesTg1.removeStartUp(testSu3);
+        tesTg2.removeStartUp(testSu4);
+        GameLogic.getLogic().setLogic(null);
     }
 
     @Test
