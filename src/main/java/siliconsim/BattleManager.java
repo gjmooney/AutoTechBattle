@@ -1,7 +1,5 @@
 package main.java.siliconsim;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
 import main.java.siliconsim.attacks.HireBusinessConsultantsStrategy;
 import main.java.siliconsim.attacks.TalentDrainAttack;
 import main.java.siliconsim.attacks.TradeSecretTheftAttack;
@@ -55,9 +53,9 @@ public class BattleManager {
         int damage = 0;
         if (player) {
             System.out.println("Health: \n" + attacker.getName() + " : "
-                    + attacker.getCurrentHealth() + "/" + attacker.getMaxHealth()
+                    + attacker.getCurrentRevenue() + "/" + attacker.getMaxRevenue()
                     + " " + defender.getName() + " : "
-                    + defender.getCurrentHealth() + "/" + defender.getMaxHealth());
+                    + defender.getCurrentRevenue() + "/" + defender.getMaxRevenue());
 
             System.out.println(attacker.getName() + ": Choose attack: ");
             attacker.listAttacks();
@@ -67,7 +65,7 @@ public class BattleManager {
             choice = GameLogic.getLogic().generateChoice((numOfChoices + 1), 2);
             System.out.println("Your choice: " + choice);
 
-            damage = calcAttack(attacker, choice, defender.getDefense());
+            damage = calcAttack(attacker, choice, defender.getMarketShare());
             System.out.println(attacker.getName() + " used " + attacker.getAttackStrategy().toString());
 
             if (damage > 0) {
@@ -79,7 +77,7 @@ public class BattleManager {
         } else {
             int numOfChoices = findNumberOfAttacks(attacker);
             choice = GameLogic.getLogic().generateChoice(numOfChoices + 1, 1);
-            damage = calcAttack(attacker, choice, defender.getDefense());
+            damage = calcAttack(attacker, choice, defender.getMarketShare());
             System.out.println(attacker.getName() + " used " + attacker.getAttackStrategy().toString());
 
             if (damage > 0) {
@@ -92,7 +90,7 @@ public class BattleManager {
 
         System.out.println();
         defender.getAttacked(damage);
-        if (defender.getCurrentHealth() <= 0) {
+        if (defender.getCurrentRevenue() <= 0) {
             setFightOver(true);
             winner = attacker;
             loser = defender;

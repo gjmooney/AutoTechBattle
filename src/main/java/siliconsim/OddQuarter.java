@@ -9,7 +9,7 @@ public class OddQuarter extends Cycle {
     public void doQuarterEvent(int quarter, TechGiant techGiant) {
         // Heal all start ups each odd quarter
         for (StartUp su : GameLogic.getLogic().getAllStartUps()) {
-            su.setCurrentHealth(su.getMaxHealth());
+            su.setCurrentRevenue(su.getMaxRevenue());
         }
 
         if (quarter == 0) {

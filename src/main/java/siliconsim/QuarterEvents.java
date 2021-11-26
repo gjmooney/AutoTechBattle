@@ -9,8 +9,8 @@ public class QuarterEvents {
      */
     public static void taxCuts() {
         for (StartUp su : GameLogic.getLogic().getAllStartUps()) {
-            su.setMaxHealth((int) Math.ceil(su.getMaxHealth() * 1.2));
-            su.setCurrentHealth(su.getMaxHealth());
+            su.setMaxRevenue((int) Math.ceil(su.getMaxRevenue() * 1.2));
+            su.setCurrentRevenue(su.getMaxRevenue());
         }
     }
 
@@ -20,8 +20,8 @@ public class QuarterEvents {
     public static void financialCrisis() {
         for (StartUp su : GameLogic.getLogic().getAllStartUps()) {
             if (!su.getType().toString().equals("FIN_TECH")) {
-                su.setDefense((int) Math.ceil(su.getDefense() * 0.8));
-                su.setAttack((int) Math.ceil(su.getAttack() * 0.8));
+                su.setMarketShare((int) Math.ceil(su.getMarketShare() * 0.8));
+                su.setNetIncome((int) Math.ceil(su.getNetIncome() * 0.8));
             }
         }
     }
@@ -31,12 +31,12 @@ public class QuarterEvents {
      */
     public static void monopolyBusting() {
         for (StartUp su : GameLogic.getLogic().getAllStartUps()) {
-            if (su.getDefense() > 300) {
-                su.setMaxHealth((int) Math.ceil(su.getMaxHealth() * 0.8));
-                su.setCurrentHealth(su.getMaxHealth());
+            if (su.getMarketShare() > 300) {
+                su.setMaxRevenue((int) Math.ceil(su.getMaxRevenue() * 0.8));
+                su.setCurrentRevenue(su.getMaxRevenue());
             } else {
-                su.setMaxHealth((int) Math.ceil(su.getMaxHealth() * 1.2));
-                su.setCurrentHealth(su.getMaxHealth());
+                su.setMaxRevenue((int) Math.ceil(su.getMaxRevenue() * 1.2));
+                su.setCurrentRevenue(su.getMaxRevenue());
             }
         }
     }
@@ -46,7 +46,7 @@ public class QuarterEvents {
      */
     public static void lobbying() {
         for (StartUp su : GameLogic.getLogic().getAllStartUps()) {
-            su.setDefense((int) Math.ceil(su.getDefense() * 1.2));
+            su.setMarketShare((int) Math.ceil(su.getMarketShare() * 1.2));
         }
     }
 }

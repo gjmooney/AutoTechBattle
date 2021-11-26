@@ -12,9 +12,9 @@ public class InternetDestroyerStartUp extends StartUpDecorator {
      */
     public InternetDestroyerStartUp(StartUp evolvedStartUp) {
         super(evolvedStartUp);
-        setAttack(getAttack() + 10);
-        setDefense(getDefense() + 10);
-        setMaxHealth(getMaxHealth() + 100);
+        setNetIncome(getNetIncome() + 10);
+        setMarketShare(getMarketShare() + 10);
+        setMaxRevenue(getMaxRevenue() + 100);
         setEvolution(Evolutions.INTERNET_DESTROYER);
     }
 

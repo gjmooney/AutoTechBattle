@@ -8,10 +8,10 @@ public class RaiseMarketShareStrategy implements OddQuarterStrategy {
     public void doEvent(TechGiant techGiant) {
         int oldMarketShare;
         for (StartUp su : techGiant.getStartUps()) {
-            oldMarketShare = su.getDefense();
-            su.setDefense((int) Math.ceil(su.getDefense() * 1.2));
+            oldMarketShare = su.getMarketShare();
+            su.setMarketShare((int) Math.ceil(su.getMarketShare() * 1.2));
             System.out.println(su.getName() + "'s Market Share increased from "
-                    + oldMarketShare + " to " + su.getDefense());
+                    + oldMarketShare + " to " + su.getMarketShare());
         }
     }
 }

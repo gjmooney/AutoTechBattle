@@ -12,9 +12,9 @@ public class VcBaitStartUp extends StartUpDecorator {
      */
     public VcBaitStartUp(StartUp evolvedStartUp) {
         super(evolvedStartUp);
-        setAttack(getAttack() + 10);
-        setDefense(getDefense() + 10);
-        setMaxHealth(getMaxHealth() + 100);
+        setNetIncome(getNetIncome() + 10);
+        setMarketShare(getMarketShare() + 10);
+        setMaxRevenue(getMaxRevenue() + 100);
         setEvolution(Evolutions.VC_BAIT);
     }
 

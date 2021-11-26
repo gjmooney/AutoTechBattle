@@ -22,9 +22,9 @@ public class FinTechStartUp extends StartUp {
      */
     public void init() {
         this.setType(Type.FIN_TECH);
-        this.setAttack(50);
-        this.setMaxHealth(200);
-        this.setDefense(50);
+        this.setNetIncome(50);
+        this.setMaxRevenue(200);
+        this.setMarketShare(50);
         this.setCritChance(18);
     }
 }

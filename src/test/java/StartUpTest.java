@@ -147,9 +147,9 @@ public class StartUpTest {
     @Test
     public void getAttacked() {
         // Starts with 100 health
-        testSu1.setCurrentHealth(100);
+        testSu1.setCurrentRevenue(100);
         testSu1.getAttacked(50);
-        int health = testSu1.getCurrentHealth();
+        int health = testSu1.getCurrentRevenue();
         assertEquals(50, health);
 
     }

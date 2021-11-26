@@ -1,6 +1,5 @@
 package main.java.siliconsim.players;
 
-import java.util.Random;
 import main.java.siliconsim.Constants;
 import main.java.siliconsim.GameLogic;
 import main.java.siliconsim.attacks.AttackStrategy;
@@ -16,10 +15,10 @@ public abstract class StartUp implements AttackList {
     private Type type; // maybe
     private int level;
     private int exp;
-    private int attack; // net income
-    private int currentHealth;
-    private int maxHealth; // revenue
-    private int defense; // market share
+    private int netIncome; // net income
+    private int currentRevenue;
+    private int maxRevenue; // revenue
+    private int marketShare; // market share
     private int critChance; // chance for a critical hit
     private int chanceToMiss;
     private AttackStrategy attackStrategy;
@@ -65,7 +64,7 @@ public abstract class StartUp implements AttackList {
      * @return Amount of damage done
      */
     public int doAttack(int opponentsDefense) {
-        double attackDouble = getAttack();
+        double attackDouble = getNetIncome();
         double damage = ((((((getLevel() * 2.0) / 5.0) + 2.0) * (attackDouble / (double) opponentsDefense)) * attackStrategy.attack()) / 50) + 20;
 
         //Attack does extra damage if it is the same type
@@ -104,7 +103,7 @@ public abstract class StartUp implements AttackList {
      * @param damage Damage done by attacker
      */
     public void getAttacked(int damage) {
-        setCurrentHealth(getCurrentHealth() - damage);
+        setCurrentRevenue(getCurrentRevenue() - damage);
     }
 
     /**
@@ -218,36 +217,36 @@ public abstract class StartUp implements AttackList {
         this.exp = exp;
     }
 
-    public int getAttack() {
-        return attack;
+    public int getNetIncome() {
+        return netIncome;
     }
 
-    public void setAttack(int attack) {
-        this.attack = attack;
+    public void setNetIncome(int netIncome) {
+        this.netIncome = netIncome;
     }
 
-    public int getCurrentHealth() {
-        return currentHealth;
+    public int getCurrentRevenue() {
+        return currentRevenue;
     }
 
-    public void setCurrentHealth(int currentHealth) {
-        this.currentHealth = currentHealth;
+    public void setCurrentRevenue(int currentRevenue) {
+        this.currentRevenue = currentRevenue;
     }
 
-    public int getMaxHealth() {
-        return maxHealth;
+    public int getMaxRevenue() {
+        return maxRevenue;
     }
 
-    public void setMaxHealth(int maxHealth) {
-        this.maxHealth = maxHealth;
+    public void setMaxRevenue(int maxRevenue) {
+        this.maxRevenue = maxRevenue;
     }
 
-    public int getDefense() {
-        return defense;
+    public int getMarketShare() {
+        return marketShare;
     }
 
-    public void setDefense(int defense) {
-        this.defense = defense;
+    public void setMarketShare(int marketShare) {
+        this.marketShare = marketShare;
     }
 
     public int getCritChance() {

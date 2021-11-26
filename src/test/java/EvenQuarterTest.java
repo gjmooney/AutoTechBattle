@@ -67,25 +67,25 @@ public class EvenQuarterTest {
     public void doQuarterEventOne() {
         GameLogic.getLogic().setCycleState(new EvenQuarter());
 
-        testSu1.setAttack(100);
-        testSu1.setDefense(100);
-        testSu2.setAttack(100);
-        testSu2.setDefense(100);
-        testSu3.setAttack(100);
-        testSu3.setDefense(100);
-        testSu4.setAttack(100);
-        testSu4.setDefense(100);
+        testSu1.setNetIncome(100);
+        testSu1.setMarketShare(100);
+        testSu2.setNetIncome(100);
+        testSu2.setMarketShare(100);
+        testSu3.setNetIncome(100);
+        testSu3.setMarketShare(100);
+        testSu4.setNetIncome(100);
+        testSu4.setMarketShare(100);
 
         GameLogic.getLogic().getCycleState().doQuarterEvent(1, tesTg1);
 
-        assertEquals(80, testSu1.getDefense());
-        assertEquals(80, testSu1.getAttack());
-        assertEquals(80, testSu2.getDefense());
-        assertEquals(80, testSu2.getAttack());
-        assertEquals(100, testSu3.getDefense());
-        assertEquals(100, testSu3.getAttack());
-        assertEquals(80, testSu4.getDefense());
-        assertEquals(80, testSu4.getAttack());
+        assertEquals(80, testSu1.getMarketShare());
+        assertEquals(80, testSu1.getNetIncome());
+        assertEquals(80, testSu2.getMarketShare());
+        assertEquals(80, testSu2.getNetIncome());
+        assertEquals(100, testSu3.getMarketShare());
+        assertEquals(100, testSu3.getNetIncome());
+        assertEquals(80, testSu4.getMarketShare());
+        assertEquals(80, testSu4.getNetIncome());
         assertFalse(tesTg1.isCatchWildStartUp());
     }
 
@@ -93,17 +93,17 @@ public class EvenQuarterTest {
     public void doQuarterEventThree() {
         GameLogic.getLogic().setCycleState(new EvenQuarter());
 
-        testSu1.setDefense(100);
-        testSu2.setDefense(100);
-        testSu3.setDefense(100);
-        testSu4.setDefense(100);
+        testSu1.setMarketShare(100);
+        testSu2.setMarketShare(100);
+        testSu3.setMarketShare(100);
+        testSu4.setMarketShare(100);
 
         GameLogic.getLogic().getCycleState().doQuarterEvent(3, tesTg1);
 
-        assertEquals(120, testSu1.getDefense());
-        assertEquals(120, testSu2.getDefense());
-        assertEquals(120, testSu3.getDefense());
-        assertEquals(120, testSu4.getDefense());
+        assertEquals(120, testSu1.getMarketShare());
+        assertEquals(120, testSu2.getMarketShare());
+        assertEquals(120, testSu3.getMarketShare());
+        assertEquals(120, testSu4.getMarketShare());
         assertFalse(tesTg1.isCatchWildStartUp());
 
     }

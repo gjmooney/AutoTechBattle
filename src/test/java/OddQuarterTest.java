@@ -66,13 +66,13 @@ public class OddQuarterTest {
     public void doQuarterEvent() {
         GameLogic.getLogic().setCycleState(new OddQuarter());
         // set health and check that
-        testSu1.setMaxHealth(120);
-        testSu1.setCurrentHealth(100);
-        testSu3.setMaxHealth(120);
-        testSu3.setCurrentHealth(100);
+        testSu1.setMaxRevenue(120);
+        testSu1.setCurrentRevenue(100);
+        testSu3.setMaxRevenue(120);
+        testSu3.setCurrentRevenue(100);
         GameLogic.getLogic().getCycleState().doQuarterEvent(GameLogic.getLogic().getQuarter(), tesTg1);
 
-        assertEquals(144, testSu1.getCurrentHealth());
-        assertEquals(144, testSu3.getCurrentHealth());
+        assertEquals(144, testSu1.getCurrentRevenue());
+        assertEquals(144, testSu3.getCurrentRevenue());
     }
 }

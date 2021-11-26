@@ -64,68 +64,68 @@ public class QuarterEventsTest {
 
     @Test
     public void taxCuts() {
-        testSu1.setMaxHealth(100);
-        testSu2.setMaxHealth(100);
-        testSu3.setMaxHealth(100);
-        testSu4.setMaxHealth(100);
+        testSu1.setMaxRevenue(100);
+        testSu2.setMaxRevenue(100);
+        testSu3.setMaxRevenue(100);
+        testSu4.setMaxRevenue(100);
         QuarterEvents.taxCuts();
-        assertEquals(120, testSu1.getMaxHealth());
-        assertEquals(120, testSu2.getMaxHealth());
-        assertEquals(120, testSu3.getMaxHealth());
-        assertEquals(120, testSu4.getMaxHealth());
+        assertEquals(120, testSu1.getMaxRevenue());
+        assertEquals(120, testSu2.getMaxRevenue());
+        assertEquals(120, testSu3.getMaxRevenue());
+        assertEquals(120, testSu4.getMaxRevenue());
     }
 
     @Test
     public void financialCrisis() {
-        testSu1.setAttack(100);
-        testSu1.setDefense(100);
-        testSu2.setAttack(100);
-        testSu2.setDefense(100);
-        testSu3.setAttack(100);
-        testSu3.setDefense(100);
-        testSu4.setAttack(100);
-        testSu4.setDefense(100);
+        testSu1.setNetIncome(100);
+        testSu1.setMarketShare(100);
+        testSu2.setNetIncome(100);
+        testSu2.setMarketShare(100);
+        testSu3.setNetIncome(100);
+        testSu3.setMarketShare(100);
+        testSu4.setNetIncome(100);
+        testSu4.setMarketShare(100);
 
         QuarterEvents.financialCrisis();
 
-        assertEquals(80, testSu1.getDefense());
-        assertEquals(80, testSu1.getAttack());
-        assertEquals(80, testSu2.getDefense());
-        assertEquals(80, testSu2.getAttack());
-        assertEquals(100, testSu3.getDefense());
-        assertEquals(100, testSu3.getAttack());
-        assertEquals(80, testSu4.getDefense());
-        assertEquals(80, testSu4.getAttack());
+        assertEquals(80, testSu1.getMarketShare());
+        assertEquals(80, testSu1.getNetIncome());
+        assertEquals(80, testSu2.getMarketShare());
+        assertEquals(80, testSu2.getNetIncome());
+        assertEquals(100, testSu3.getMarketShare());
+        assertEquals(100, testSu3.getNetIncome());
+        assertEquals(80, testSu4.getMarketShare());
+        assertEquals(80, testSu4.getNetIncome());
     }
 
     @Test
     public void monopolyBusting() {
-        testSu1.setMaxHealth(100);
-        testSu2.setMaxHealth(100);
-        testSu1.setDefense(400);
-        testSu2.setDefense(400);
+        testSu1.setMaxRevenue(100);
+        testSu2.setMaxRevenue(100);
+        testSu1.setMarketShare(400);
+        testSu2.setMarketShare(400);
 
-        testSu3.setMaxHealth(100);
-        testSu4.setMaxHealth(100);
+        testSu3.setMaxRevenue(100);
+        testSu4.setMaxRevenue(100);
         QuarterEvents.monopolyBusting();
-        assertEquals(80, testSu1.getMaxHealth());
-        assertEquals(80, testSu2.getMaxHealth());
-        assertEquals(120, testSu3.getMaxHealth());
-        assertEquals(120, testSu4.getMaxHealth());
+        assertEquals(80, testSu1.getMaxRevenue());
+        assertEquals(80, testSu2.getMaxRevenue());
+        assertEquals(120, testSu3.getMaxRevenue());
+        assertEquals(120, testSu4.getMaxRevenue());
     }
 
     @Test
     public void lobbying() {
-        testSu1.setDefense(100);
-        testSu2.setDefense(100);
-        testSu3.setDefense(100);
-        testSu4.setDefense(100);
+        testSu1.setMarketShare(100);
+        testSu2.setMarketShare(100);
+        testSu3.setMarketShare(100);
+        testSu4.setMarketShare(100);
 
         QuarterEvents.lobbying();
 
-        assertEquals(120, testSu1.getDefense());
-        assertEquals(120, testSu2.getDefense());
-        assertEquals(120, testSu3.getDefense());
-        assertEquals(120, testSu4.getDefense());
+        assertEquals(120, testSu1.getMarketShare());
+        assertEquals(120, testSu2.getMarketShare());
+        assertEquals(120, testSu3.getMarketShare());
+        assertEquals(120, testSu4.getMarketShare());
     }
 }

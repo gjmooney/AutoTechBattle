@@ -65,10 +65,10 @@ public class RaiseMarketShareStrategyTest {
     @Test
     public void doEvent() {
         RaiseMarketShareStrategy raiseMarketShareStrategy = new RaiseMarketShareStrategy();
-        testSu1.setDefense(100);
-        testSu3.setDefense(100);
+        testSu1.setMarketShare(100);
+        testSu3.setMarketShare(100);
         raiseMarketShareStrategy.doEvent(tesTg1);
-        assertEquals(120, testSu1.getDefense());
-        assertEquals(120, testSu3.getDefense());
+        assertEquals(120, testSu1.getMarketShare());
+        assertEquals(120, testSu3.getMarketShare());
     }
 }

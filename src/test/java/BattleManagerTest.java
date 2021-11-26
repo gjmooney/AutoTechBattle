@@ -68,12 +68,12 @@ public class BattleManagerTest {
 
     @Test
     public void startBattle() {
-        testSu2.setCurrentHealth(1);
+        testSu2.setCurrentRevenue(1);
         StartUp winner1 = GameLogic.getLogic().getBattleManager().startBattle(testSu1, testSu2);
         assertEquals(testSu1, winner1);
 
-        testSu2.setCurrentHealth(testSu2.getMaxHealth());
-        testSu1.setCurrentHealth(1);
+        testSu2.setCurrentRevenue(testSu2.getMaxRevenue());
+        testSu1.setCurrentRevenue(1);
 
         StartUp winner2 = GameLogic.getLogic().getBattleManager().startBattle(testSu1, testSu2);
         assertEquals(testSu2, winner2);
