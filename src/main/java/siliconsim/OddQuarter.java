@@ -52,6 +52,7 @@ public class OddQuarter extends Cycle {
                 case 2:
                     if (GameLogic.getLogic().getWildStartUps().isEmpty())  {
                         choice = 0;
+                        validInput = false;
                     } else {
                         techGiant.setOddQuarterStrategy(new CatchNewStartUpStrategy());
                     }

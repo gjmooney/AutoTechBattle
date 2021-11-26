@@ -15,7 +15,7 @@ public class QuarterEvents {
     }
 
     /**
-     * Financial crisis reduces Market Share and Net Income of all non-fin-tech start-ups
+     * Financial crisis reduces Market Share and Net Income of all non-fin-tech start-ups.
      */
     public static void financialCrisis() {
         for (StartUp su : GameLogic.getLogic().getAllStartUps()) {
@@ -27,7 +27,7 @@ public class QuarterEvents {
     }
 
     /**
-     * Reduce revenue for start-ups with more than 300 market share raise it otherwise
+     * Reduce revenue for start-ups with more than 300 market share raise it otherwise.
      */
     public static void monopolyBusting() {
         for (StartUp su : GameLogic.getLogic().getAllStartUps()) {
@@ -42,7 +42,7 @@ public class QuarterEvents {
     }
 
     /**
-     * Increase Market Share
+     * Increase Market Share.
      */
     public static void lobbying() {
         for (StartUp su : GameLogic.getLogic().getAllStartUps()) {

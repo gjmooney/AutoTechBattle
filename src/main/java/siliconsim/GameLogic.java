@@ -2,7 +2,6 @@ package main.java.siliconsim;
 
 import java.util.LinkedList;
 import java.util.Random;
-
 import main.java.siliconsim.players.StartUp;
 import main.java.siliconsim.players.TechGiant;
 
@@ -59,7 +58,7 @@ public final class GameLogic {
         return hasEvolved;
     }
 
-    public void setHasEvolved(boolean evolved) {
+    public static void setHasEvolved(boolean evolved) {
         hasEvolved = evolved;
     }
 
@@ -76,7 +75,7 @@ public final class GameLogic {
         System.out.println(quarter);
     }
 
-    public void setCycleState(Cycle cycle) {
+    public static void setCycleState(Cycle cycle) {
         cycleState = cycle;
     }
 

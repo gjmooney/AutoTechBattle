@@ -66,7 +66,6 @@ public abstract class StartUp implements AttackList {
      */
     public int doAttack(int opponentsDefense) {
         double attackDouble = getAttack();
-
         double damage = ((((((getLevel() * 2.0) / 5.0) + 2.0) * (attackDouble / (double) opponentsDefense)) * attackStrategy.attack()) / 50) + 20;
 
         //Attack does extra damage if it is the same type

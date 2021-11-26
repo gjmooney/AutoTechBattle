@@ -10,7 +10,7 @@ import main.java.siliconsim.players.TechGiant;
 public abstract class Cycle {
     int choice = 0;
 
-    Scanner in = new Scanner(System.in, StandardCharsets.UTF_8.name());
+    //Scanner in = new Scanner(System.in, StandardCharsets.UTF_8.name());
 
     public abstract void doQuarterEvent(int quarter, TechGiant techGiant);
 }

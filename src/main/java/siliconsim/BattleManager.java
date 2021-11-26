@@ -12,7 +12,7 @@ import main.java.siliconsim.players.StartUp;
 import main.java.siliconsim.players.TechGiant;
 
 public class BattleManager {
-    Scanner in = new Scanner(System.in, StandardCharsets.UTF_8.name());
+    //Scanner in = new Scanner(System.in, StandardCharsets.UTF_8.name());
     int turn;
     int choice;
     boolean fightOver;
