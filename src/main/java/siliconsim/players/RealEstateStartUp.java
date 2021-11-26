@@ -22,7 +22,7 @@ public class RealEstateStartUp extends StartUp {
      */
     public void init() {
         this.setType(Type.REAL_ESTATE);
-        this.setNetIncome(150);
+        this.setNetIncome(150000);
         this.setMaxRevenue(100);
         this.setMarketShare(50);
         this.setCritChance(15);

@@ -22,7 +22,7 @@ public class HealthCareStartUp extends StartUp {
      */
     public void init() {
         this.setType(Type.HEALTH_CARE);
-        this.setNetIncome(100);
+        this.setNetIncome(100000);
         this.setMaxRevenue(100);
         this.setMarketShare(100);
         this.setCritChance(13);

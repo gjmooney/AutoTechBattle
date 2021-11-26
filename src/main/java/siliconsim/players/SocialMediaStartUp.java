@@ -22,7 +22,7 @@ public class SocialMediaStartUp extends StartUp {
      */
     public void init() {
         this.setType(Type.SOCIAL_MEDIA);
-        this.setNetIncome(50);
+        this.setNetIncome(50000);
         this.setMaxRevenue(100);
         this.setMarketShare(150);
         this.setCritChance(14);
