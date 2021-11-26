@@ -32,7 +32,7 @@ public class Main {
         willow.setExp(63);
         markHealth.setLevel(4);
         markHealth.setExp(63);
-        
+
         GameLogic.getLogic().addOwnedStartUp(willow);
         GameLogic.getLogic().addOwnedStartUp(markHealth);
         GameLogic.getLogic().addWildStartUp(greyRock);
