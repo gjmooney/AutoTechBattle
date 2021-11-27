@@ -109,10 +109,11 @@ public class StartUpTest {
 
     @Test
     public void listAttacksInternetDestroyerStartUp() throws UnsupportedEncodingException {
-        testSu3.setLevel(5);
-        testSu3 = testSu3.evolveCheck();
-        testSu3.setLevel(10);
-        testSu3 = testSu3.evolveCheck();
+        for (int i = 1; i < 10; i++) {
+            testSu3.setExp(i * i * i);
+            testSu3.levelCheck();
+            testSu3 = testSu3.evolveCheck();
+        }
 
         // Change System output for comparison
         ByteArrayOutputStream output = new ByteArrayOutputStream();
@@ -133,15 +134,14 @@ public class StartUpTest {
 
     @Test
     public void doAttackUndercut() {
-        //start-ups level is 1 and attack value is 150
+        // start-ups level is 1 and attack value is 150000
         // opponents defense is 100
         testSu1.setAttackStrategy(new UndercutPriceAttack());
-        //24 i think
         int damage = testSu1.doAttack(100);
 
         // Low end is a miss (0 damage) and high end is a critical hit
         // Same type attack bonus is applied
-        assertTrue(damage >= 0 && damage <= 37);
+        assertTrue(damage >= 0 && damage <= 218);
     }
 
     @Test

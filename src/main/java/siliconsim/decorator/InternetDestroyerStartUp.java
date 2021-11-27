@@ -21,8 +21,7 @@ public class InternetDestroyerStartUp extends StartUpDecorator {
     @Override
     public void listAttacks() {
         super.listAttacks();
-        System.out.println("3) Hire Business Consultants"
-                + "\n4) Undercut Prices");
+        System.out.println("4) Undercut Prices");
 
     }
 }

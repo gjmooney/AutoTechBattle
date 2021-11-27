@@ -27,15 +27,13 @@ public class BattleManagerTest {
     StartUp testSu3 = new FinTechStartUp("testSu3");
     StartUp testSu4 = new SocialMediaStartUp("testSu4");
 
-
-    //Tech giants acquire startups
-
-
-    /**
-     * Add tech giants and start-ups to main list.
-     */
     @Before
     public void setUp() {
+        testSu1.setCurrentRevenue(testSu1.getMaxRevenue());
+        testSu2.setCurrentRevenue(testSu2.getMaxRevenue());
+        testSu3.setCurrentRevenue(testSu3.getMaxRevenue());
+        testSu4.setCurrentRevenue(testSu4.getMaxRevenue());
+
         GameLogic.getLogic();
         GameLogic.getLogic().addTechGiant(tesTg1);
         GameLogic.getLogic().addTechGiant(tesTg2);
@@ -70,12 +68,12 @@ public class BattleManagerTest {
     public void startBattle() {
         testSu2.setCurrentRevenue(1);
         StartUp winner1 = GameLogic.getLogic().getBattleManager().startBattle(testSu1, testSu2);
-        assertEquals(testSu1, winner1);
+        assertEquals("TestSU1 won.", testSu1, winner1);
 
-        testSu2.setCurrentRevenue(testSu2.getMaxRevenue());
+        testSu2.setCurrentRevenue(10000);
         testSu1.setCurrentRevenue(1);
 
         StartUp winner2 = GameLogic.getLogic().getBattleManager().startBattle(testSu1, testSu2);
-        assertEquals(testSu2, winner2);
+        assertEquals("TestSU2 won.", testSu2, winner2);
     }
 }

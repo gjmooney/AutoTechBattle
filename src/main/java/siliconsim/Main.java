@@ -35,11 +35,11 @@ public class Main {
         for (int i = 1; i < 4; i++) {
             willow.setExp(i * i * i);
             willow.levelCheck();
-            willow.evolveCheck();
+            willow = willow.evolveCheck();
 
             markHealth.setExp(i * i * i);
             markHealth.levelCheck();
-            markHealth.evolveCheck();
+            markHealth = markHealth.evolveCheck();
         }
         willow.setExp(63);
         markHealth.setExp(63);
@@ -48,19 +48,11 @@ public class Main {
         for (int i = 1; i < 9; i++) {
             darkRock.setExp(i * i * i);
             darkRock.levelCheck();
-            darkRock.evolveCheck();
+            darkRock = darkRock.evolveCheck();
 
             noSpace.setExp(i * i * i);
             noSpace.levelCheck();
-            noSpace.evolveCheck();
-
-            darkRock.setExp(i * i * i);
-            darkRock.levelCheck();
-            darkRock.evolveCheck();
-
-            noSpace.setExp(i * i * i);
-            noSpace.levelCheck();
-            noSpace.evolveCheck();
+            noSpace = noSpace.evolveCheck();
         }
         darkRock.setExp(728);
         noSpace.setExp(728);
