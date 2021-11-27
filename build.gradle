@@ -20,6 +20,20 @@ dependencies {
     compile "junit:junit:4.12"
 }
 
+jacocoTestReport {
+    dependsOn test
+
+    afterEvaluate {
+        getClassDirectories().setFrom(classDirectories.files.collect {
+            fileTree(dir: it,
+                exclude: [
+                     'main/java/siliconsim/Main.class'
+                ]
+            )
+        })
+    }
+}
+
 ///////////////////////////////////////////////////////////////////////
 // Configure Checkstyle
 /////////////////////////////////////////////////////////////////////
