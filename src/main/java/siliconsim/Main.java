@@ -24,8 +24,6 @@ public class Main {
         //Create startups
         StartUp willow = new RealEstateStartUp("Willow");
         StartUp markHealth = new HealthCareStartUp("MarkHealth");
-        StartUp greyRock = new FinTechStartUp("GreyRock");
-        StartUp xulin = new SocialMediaStartUp("Xulin");
         StartUp darkRock = new FinTechStartUp("DarkRock");
         StartUp noSpace = new SocialMediaStartUp("NoSpace");
 
@@ -67,6 +65,9 @@ public class Main {
         GameLogic.getLogic().addOwnedStartUp(willow);
         GameLogic.getLogic().addOwnedStartUp(markHealth);
 
+        // Create wild start-ups
+        StartUp greyRock = new FinTechStartUp("GreyRock");
+        StartUp xulin = new SocialMediaStartUp("Xulin");
         GameLogic.getLogic().addWildStartUp(greyRock);
         GameLogic.getLogic().addWildStartUp(xulin);
 

@@ -238,7 +238,7 @@ public abstract class StartUp implements AttackList {
     }
 
     public void setMaxRevenue(int maxRevenue) {
-        this.maxRevenue = maxRevenue;
+        this.maxRevenue = Math.min(maxRevenue, 1000);
     }
 
     public int getMarketShare() {
