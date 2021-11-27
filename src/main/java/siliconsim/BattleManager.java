@@ -179,7 +179,8 @@ public class BattleManager {
         if (techGiant.getStartUps().isEmpty()) {
             GameLogic.getLogic().setGameOver(true);
             System.out.println(techGiant.getName() + " has no more start-ups!"
-                    + "\n" + techGiant.getName() + " is out of the game!");
+                    + "\n" + techGiant.getName() + " is out of the game!"
+                    + "GAME OVER!");
         }
     }
 
