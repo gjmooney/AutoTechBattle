@@ -27,6 +27,9 @@ public class BattleManagerTest {
     StartUp testSu3 = new FinTechStartUp("testSu3");
     StartUp testSu4 = new SocialMediaStartUp("testSu4");
 
+    /**
+     * Add tech giants and start-ups to main list and reset start-up health.
+     */
     @Before
     public void setUp() {
         testSu1.setCurrentRevenue(testSu1.getMaxRevenue());
@@ -66,12 +69,13 @@ public class BattleManagerTest {
 
     @Test
     public void startBattle() {
+        testSu1.setCurrentRevenue(10000);
         testSu2.setCurrentRevenue(1);
         StartUp winner1 = GameLogic.getLogic().getBattleManager().startBattle(testSu1, testSu2);
         assertEquals("TestSU1 won.", testSu1, winner1);
 
-        testSu2.setCurrentRevenue(10000);
         testSu1.setCurrentRevenue(1);
+        testSu2.setCurrentRevenue(10000);
 
         StartUp winner2 = GameLogic.getLogic().getBattleManager().startBattle(testSu1, testSu2);
         assertEquals("TestSU2 won.", testSu2, winner2);
