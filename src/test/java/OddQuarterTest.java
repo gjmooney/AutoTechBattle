@@ -70,7 +70,8 @@ public class OddQuarterTest {
         testSu1.setCurrentRevenue(100);
         testSu3.setMaxRevenue(120);
         testSu3.setCurrentRevenue(100);
-        GameLogic.getLogic().getCycleState().doQuarterEvent(GameLogic.getLogic().getQuarter(), tesTg1);
+        GameLogic.getLogic().getCycleState()
+                .doQuarterEvent(GameLogic.getLogic().getQuarter(), tesTg1);
 
         assertEquals(144, testSu1.getCurrentRevenue());
         assertEquals(144, testSu3.getCurrentRevenue());

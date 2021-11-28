@@ -66,7 +66,8 @@ public class BattleManager {
             System.out.println("Your choice: " + choice);
 
             damage = calcAttack(attacker, choice, defender.getMarketShare());
-            System.out.println(attacker.getName() + " used " + attacker.getAttackStrategy().toString());
+            System.out.println(attacker.getName() + " used "
+                    + attacker.getAttackStrategy().toString());
 
             if (damage > 0) {
                 System.out.println(attacker.getName() + " did " + damage + " damage to "
@@ -78,7 +79,8 @@ public class BattleManager {
             int numOfChoices = findNumberOfAttacks(attacker);
             choice = GameLogic.getLogic().generateChoice(numOfChoices + 1, 1);
             damage = calcAttack(attacker, choice, defender.getMarketShare());
-            System.out.println(attacker.getName() + " used " + attacker.getAttackStrategy().toString());
+            System.out.println(attacker.getName() + " used "
+                    + attacker.getAttackStrategy().toString());
 
             if (damage > 0) {
                 System.out.println(attacker.getName() + " did " + damage + " damage to "

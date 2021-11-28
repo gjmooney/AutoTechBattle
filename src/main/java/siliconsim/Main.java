@@ -77,13 +77,15 @@ public class Main {
             // 0 and 1 are the odd quarters OKAY
             if (GameLogic.getLogic().getQuarter() == 0 || GameLogic.getLogic().getQuarter() == 2) {
                 GameLogic.getLogic().setCycleState(new OddQuarter());
-                GameLogic.getLogic().getCycleState().doQuarterEvent(GameLogic.getLogic().getQuarter(), playersTurn);
+                GameLogic.getLogic().getCycleState()
+                        .doQuarterEvent(GameLogic.getLogic().getQuarter(), playersTurn);
                 GameLogic.getLogic().changeQuarter();
             }
             // 1 and 3 are EVEN OKAY
             if (GameLogic.getLogic().getQuarter() == 1 || GameLogic.getLogic().getQuarter() == 3) {
                 GameLogic.getLogic().setCycleState(new EvenQuarter());
-                GameLogic.getLogic().getCycleState().doQuarterEvent(GameLogic.getLogic().getQuarter(), playersTurn);
+                GameLogic.getLogic().getCycleState()
+                        .doQuarterEvent(GameLogic.getLogic().getQuarter(), playersTurn);
                 GameLogic.getLogic().changeQuarter();
             }
         } while (!GameLogic.getLogic().isGameOver());

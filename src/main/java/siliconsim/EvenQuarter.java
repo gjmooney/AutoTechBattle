@@ -16,7 +16,8 @@ public class EvenQuarter extends Cycle {
         }
         if (quarter == 3) {
             System.out.println("\nIt's Q4! Those legal departments have been busy in DC!"
-                    + "They're lobbying efforts have increased market share for all start ups by 20%!");
+                    + "They're lobbying efforts have increased market "
+                    + "share for all start ups by 20%!");
             QuarterEvents.lobbying();
         }
 
@@ -53,9 +54,11 @@ public class EvenQuarter extends Cycle {
             int techGiantNumber = GameLogic.getLogic().getAllTechGiants().size();
             int techGiantNum = GameLogic.getLogic().generateChoice(techGiantNumber, 1);
             // Choose a random start up owned by that tech giant
-            int startUpIndexNum = GameLogic.getLogic().getAllTechGiants().get(techGiantNum).getStartUps().size();
+            int startUpIndexNum = GameLogic.getLogic().getAllTechGiants()
+                    .get(techGiantNum).getStartUps().size();
             int startUpNum = GameLogic.getLogic().getRandom().nextInt(startUpIndexNum);
-            return GameLogic.getLogic().getAllTechGiants().get(techGiantNum).getStartUps().get(startUpNum);
+            return GameLogic.getLogic().getAllTechGiants()
+                    .get(techGiantNum).getStartUps().get(startUpNum);
         }
     }
 }
